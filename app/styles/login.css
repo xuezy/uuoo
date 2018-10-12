@@ -1,0 +1,94 @@
+/*loginstyle*/
+input:-webkit-autofill {  
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;  
+} 
+input{outline:none; }
+#login-div{
+  width: 100%;
+  background-color: #f6f6f8;
+  height: 100%;
+}
+.account-box {
+  margin-top: 35px;
+  font-size: 18px;
+  text-align: center;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #dadada;
+  padding-bottom: 30px;
+}
+.account-area {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.account-area .nav-tabs {
+  margin-bottom: 50px;
+  border-bottom: 1px solid #ddd;
+}
+.nav-tabs>li {
+  min-width: 75px;
+  float: none;
+  display: inline-block;
+  margin-bottom: -1px;
+
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  border: none;
+  border-bottom: 2px solid #1892f5;
+
+   line-height: 57px;
+}
+.pannel-war {
+  font-size: 14px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.login-main{
+  width: 455px;
+  margin: 0 auto;
+
+}
+.nav-tabs > li > a:hover{ background-color: inherit; border:none; cursor: pointer; }
+.form-name{
+  float: left;
+  line-height: 42px;
+  font-size: 12px;
+  width: 60px;
+  text-align: left;
+}
+.form-register{
+  height: 42px;
+  background-color: #fff;
+  margin-bottom: 25px;
+  width: 80%;
+  display: block;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-control{
+  height: 42px;
+  background-color: #fff;
+  margin-bottom: 25px;
+  width: 100%;
+}
+.btn-primary{
+  background-color: #349bdf;
+  border: none;
+}
+.verification-code{
+  float: left;
+  font-size: 14px;
+  margin-bottom: 30px;
+}

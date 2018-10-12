@@ -1,0 +1,63 @@
+<!-- 生成订单页面 -->
+<div class="main" style="padding:30px 30px 0 30px;">
+ 	<div class="project">
+  	<h1>提交成功，请在<strong>{{timer}}</strong>s内完成支付...</h1>
+      <div class="category">
+      	<div class="cagInfo">
+          <p ng-if="param.BusiCode === '01'"><span>业务类型：</span><span id="BusiType">{{param.BusiType}}</span></p>
+          <p ng-if="param.BusiCode === '02'"><span>充值号码：</span><span id="BusiType">{{param.IDValue}}</span></p>
+          <p><span>订单号：</span><span id="OrderNo">{{param.OrderNo}}</span></p>
+          <p ng-if="param.BusiCode === '01'"><span>办理费用：</span><span id="ChargeMoney">{{param.OrderMoney}}</span>元</p>
+          <p ng-if="param.BusiCode === '02'"><span>充值金额：</span><span id="ChargeMoney">{{param.ChargeMoney}}</span>元</p>
+          <p><span>办理日期：</span><span id="HandleTime">{{param.HandleTime}}</span></p>
+          <p ng-if="param.BusiCode === '01'"><span>优惠金额：</span><span id="PayGift">{{param.PayGift}}</span>元</p>
+          <p ng-if="param.BusiCode === '02'"><span>到账金额：</span><span id="PayGift">{{param.ChargeMoney}}</span>元</p>
+          </div>
+          <div class="cagSum">
+         <span>支付金额：</span>
+         <span id="Payment"><strong style=" color:#ffa33b; font-size:50px;">{{param.Payment}}</strong>元</span>
+          </div>
+      </div>
+  </div> 
+  <div class="group">
+  	<h1>请选择支付方式：</h1>
+      <div>
+      	<div class="board-name" id="weixin-bg" ng-click="setPayType('weixin')">
+        	<p style="font-size:20px;"><i class="fa fa-qrcode"></i>微信支付</p>
+        </div>
+        <div class="board-name" id="alipay-bg" ng-click="setPayType('alipay')">
+          <p style="font-size:20px;"><i class="fa fa-qrcode"></i>支付宝支付</p>
+        </div>
+        <div class="board-name" ng-show="param.BusiCode=='01'" id="cmpay-bg" ng-click="setPayType('cmpay')">
+          <p style="font-size:20px;"><i class="fa fa-qrcode"></i>和包支付</p>
+        </div>
+        <div class="board-name" id="unionpay-bg" ng-click="setPayType('unionpay')">
+          <p style="font-size:20px;"><i class="fa fa-qrcode"></i>云闪付</p>
+        </div>
+        <div class="board-name" id="cash-bg" ng-click="setPayType('cash')">
+        	<p style="font-size:20px;"><i class="fa fa-money"></i>现金支付</p>
+        	
+        </div>
+        <div class="board-name" id="swipingCard-bg" ng-click="setPayType('swipingCard')">
+        	<p style="font-size:20px;"><i class="fa fa-credit-card-alt"></i>刷卡支付</p>
+        	
+        </div>
+      </div>
+  </div>  
+</div>
+<div class="footer">
+    <span ng-click="open=true" class="bottom" style="background:none; color: #0080ce;">取消支付</span>
+    <span ng-click="paySubmit()" class="bottom">确认支付</span>
+</div>
+<div ng-show='open'  class="maskLayer">
+  <div class="notice"  style="width:450px;height: 300px; padding:45px 40px 40px 40px;">
+    <div class="">
+      <p style="font-size:18px; margin-bottom:30px;">订单尚未支付，取消将停止办理该业务，是否确认取消？</p>
+      </div>
+    <div class="footer">
+      <span class="bottom" ng-click="open=flase" style=" background:#ccc;">取消</span>
+      <span class="bottom" ng-click="payCancel()">确认</span>
+    </div>
+  </div>
+</div>
+

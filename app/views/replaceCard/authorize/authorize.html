@@ -1,0 +1,29 @@
+<div class="centerdiv">
+    <div class="page-title-strong">
+      <h1>业务需要<strong>工作人员进行授权</strong>，已为您呼叫，请稍候…</h1>
+    </div>
+    <div class="page-picture-wait"></div>
+ </div>
+<div class="maskLayer" ng-show="payState=='success'">
+	<div class="notice" >
+	  <img src="./images/p3_003.png">
+	  <p>授权成功，请稍候...</p>
+	</div>
+</div>
+<div ng-show="payState=='underway'"  class="maskLayer">
+  <div class="notice"  >
+    <div class="box">    
+        <div class="loading">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>     
+        </div>
+    </div>
+    <p>正在授权，请稍候...</p>
+  </div>
+</div>

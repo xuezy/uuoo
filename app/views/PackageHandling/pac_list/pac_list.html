@@ -1,0 +1,126 @@
+<div>
+  <div class="wrapper">
+    <div class="main">
+      <div class="between-left">
+        <div class="sidebar-title">选择主套餐</div>
+        <div class="sidebar-cont">
+          <ul>
+            <li ng-repeat="onelist in productslist" ng-click="sendone($index,onelist)" ng-class="{true: 'listHover', false: 'sidebar-list' }[$index == packageIndex]">
+              <h1>{{onelist.productName}}</h1>
+              <span style="font-size: 16px;">{{onelist.productDescribe}}</span>
+               <div> <span style=" width: 63%; font-size: 18px;">次月生效</span><span style="font-size:14px; width: 37%;"><strong>{{onelist.minCharges}}</strong>元/月起</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="between-right">
+        <div class="sidebar-title" style="border-bottom: 1px solid #e8e8e8; padding: 20px 15px 30px 15px;">选择资费<div class="tips">现正使用：{{alreadyPlan.bizFee}}元{{alreadyPlan.productName}}</div></div>
+        <div class="group">
+          <ul>
+            <li ng-repeat="mlist in productDec" ng-click="sendtwo($index,mlist)" ng-class="{true: 'list-rightHover', false: 'list-right' }[$index == feeIndex]">{{mlist.bizFee}}元/月</li>
+
+          </ul>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="money" style="margin-top: 20px;">
+          <div style="border-bottom: 1px solid #e8e8e8;">
+            <span style="display:inline-block; width:22%; text-align: center;"><a href="" class="Login-mode" style="color: #00cdbd;">资费介绍</a>
+              <p class="LoginMode-line" style="width: auto;"></p>
+            </span>
+            <span style="display:inline-block; width:22%; text-align: center;"><a href="" class="Login-mode">套餐详情</a>
+              <p class="LoginMode-line" style="display:none;width: auto;"></p>
+            </span>
+            <span style="display:inline-block; width:22%; text-align: center;"><a href="" class="Login-mode">温馨提示</a>
+              <p class="LoginMode-line" style="display:none;width: auto;"></p>
+            </span>
+          </div>
+          <div class="betweenTab">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-bottom: 1px solid #e8e8e8;">
+              <tr>
+                <td width="7%" height="32" align="center" bgcolor="#ffffff" style="color:#cccccc;">资费</td>
+                <td width="14%" height="32" align="center" bgcolor="#ffffff" style="color:#cccccc;">国内拨打时长</td>
+                <td width="17%" height="32" align="center" bgcolor="#ffffff" style="color:#cccccc;">国内流量</td>
+                <td width="17%" height="32" align="center" bgcolor="#ffffff" style="color:#cccccc;">手机宽带速率</td>
+                <td width="20%" height="32" align="center" bgcolor="#ffffff" style="color:#cccccc;">国内短信</td>
+                <td width="11%" height="32" align="center" bgcolor="#ffffff" style="color:#cccccc;">赠送国际流量</td>
+                <td width="14%" height="32" align="center" bgcolor="#ffffff" style="color:#cccccc;">国内不限量说明</td>
+              </tr>
+            </table>
+            <div style="max-height:250px; overflow-y:auto;">
+              <table width="99%" border="0" cellspacing="0" cellpadding="0">
+                <tr ng-repeat="nlist in productDec" style="border-bottom: 1px solid #e8e8e8;">
+                  <td width="8%" align="center" bgcolor="#ffffff">{{nlist.bizFee}}元/月</td>
+                  <td width="11%" align="center" bgcolor="#ffffff">{{nlist.dCall}}</td>
+                  <td width="17%" align="center" bgcolor="#ffffff">
+                    <p>{{nlist.dFlow}}</p>
+                    <p>{{nlist.explain}}</p>
+                  </td>
+                  <td width="22%" align="center" bgcolor="#ffffff">
+                    <p>{{nlist.broadband}}</p>
+                    <!-- <p>（以当地实际可安装带率为准）</p> -->
+                  </td>
+                  <td width="14%" align="center" bgcolor="#ffffff">{{nlist.dMessage}}</td>
+                  <td width="17%" align="center" bgcolor="#ffffff" style="border-right:1px solid #fff;">{{nlist.giveFFlow}}</td>
+                  <td width="25%" align="center" bgcolor="#ffffff"><p>{{nlist.explain}}</p></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="PageBottom">
+      <span ui-sref="home" class="bottom btn-color-disable">返回</span>
+      <span ng-click="payment()" class="bottom">立即办理</span>
+    </div>
+  </div>
+
+  <!-- 套餐更换弹框 -->
+  <div ng-show="changTC" class="maskLayer">
+    <div class="diago" style=" width: 700px;">
+      <div class="diagonMain">
+        <div class="diagonMainTit">
+          <h1>亲爱的 13510000001 用户,您即将办理 </h1>
+          <p style="font-size:26px; color:#333;">{{product}}</p>
+          <p style="margin-bottom: 20px;">办理成功后，您的主套餐将由：</p>
+        </div>
+        <div class="dalogMain">
+          <div class="modalBanl modalBanl-hover" style="width: 250px; margin-right: 80px; min-height: 152px;">
+            <h1>{{alreadyPlan.productName}}</h1>
+            <p style="text-align: center;">资费：{{alreadyPlan.bizFee}}元/月</p>
+          </div>
+          <div class="modalArrow"><i class="fa fa-arrow-right"></i></div>
+          <div class="modalBanl"  style="width: 250px; min-height: 152px;">
+            <h1 style="text-align: left;">{{product}}</h1>
+             <p style="text-align: left;">生效时间：2018-10-01</p>
+            <p style="text-align: left;">资费：{{productFee}}元/月</p>
+
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+      <div class="footer">
+        <span ng-click="changTC=false" class="bottom btn-color-disable">取消</span>
+        <span ng-click='paymentSure()' class="bottom">确认办理</span>
+      </div>
+      </div>
+      
+    </div>
+
+  </div>
+  <!-- 无法降档弹框 -->
+  <div ng-show="downshift" class="maskLayer">
+    <div class="diago" style="width:650px;">
+      <div class="">
+        <p style="width:90%; text-align:center; margin-bottom:20px;"><img src="images/p3_004.png" width="92" height="92"
+          /></p>
+        <p style="font-size:16px; margin-bottom:40px; width:85%; text-align:center;">抱歉，暂时无法办理此业务，详情请咨询工作人员，谢谢。</p>
+
+      </div>
+      <div class="footer" style="width:105%;">
+        <span ng-click="downshift=false" class="bottom btn-color-disable" style="font-size:25px">返回</span>
+        <span class="bottom" style="background:#a6a6ae;font-size:25px">呼叫客服</span>
+        <span ui-sref="home" class="bottom" style="font-size:25px">退出办理</span>
+      </div>
+    </div>
+  </div>
+</div>

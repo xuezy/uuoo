@@ -1,0 +1,47 @@
+<div class="container">
+	<div class="page-title-strong">
+      <h1>请选择验证方式</h1>
+    </div>
+    <div class="verbtn" ng-class="type==1 ? 'verbtn-hover' : ''" ng-click="type=1">
+    	<span>服务密码验证</span>
+    	<div></div>
+    </div>
+    <div class="verbtn" ng-class="type==2 ? 'verbtn-hover' : ''"   ng-click="type=2">
+    	<span>近期通话号码验证</span>
+    	<div></div>
+    </div>
+</div>
+<div class="PageBottom">
+    <button ng-click="ok()" type="button" class="bottom btn-primary">下一步</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+<div class="container">
+	<div class="mod-area-tagpanel">
+		<div class="tagpanel">
+			<div class="tagpaper">
+				<input name="sex" type="radio"  ng-value="1"  ng-model="type" />服务密码验证   
+				<input name="sex" type="radio"  ng-value="2"   ng-model="type" />近期通话号码验证
+			</div>
+		</div>
+	</div>
+	<div class="footer" style="margin-top: 62px">
+	  <span ng-click="ok()" class="bottom">下一步</span>
+	</div>
+</div>
+
+-->

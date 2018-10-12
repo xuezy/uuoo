@@ -1,0 +1,75 @@
+<!-- 业务受理单 -->
+<div class="container-fluid" ng-init="init()">
+<div class="row">
+<div class="wrapper">
+	<div class="container">
+		<div class="container-x">
+			<div class="con-left">
+				<div class="con-title" style="border-bottom: none;">客户资料</div>
+				<div class="subpanel">
+					<div class="infodiv">
+						<p class="infodiv-name">手机号码</p>
+						<p class="infodiv-val">{{user.phone}}</p>
+					</div>
+					<div class="infodiv" ng-show="basicInfo.name">
+						<p class="infodiv-name">客户姓名/名称</p>
+						<p class="infodiv-val">{{basicInfo.name}}</p>
+					</div>
+					<div class="infodiv" ng-show="basicInfo.id">
+						<p class="infodiv-name">证件号码</p>
+						<p class="infodiv-val">{{basicInfo.id}}</p>
+					</div>
+                    <div class="infodiv" ng-show="basicInfo.id">
+						<p class="infodiv-name">身份类型</p>
+						<p class="infodiv-val">身份证</p>
+					</div>
+				</div>	
+			</div>
+			<div class="con-right">
+				<div class="con-title"><div style="margin-left:30px;">
+            <span style="display:inline-block; margin-right:20px; line-height:15px;"><a href="" class="Login-mode">业务受理内容</a>
+            </div></div>
+				<div class="subpanel" style="max-height:370px;">
+					<div class="pannel-right">
+					<div class="pannel-right">
+					<p>受理日期：{{repairOrder.recDate}}</p>
+					<p>受理网点：{{repairOrder.recSite}}</p>
+					<p>订单号：{{repairOrder.orderId}}</p>
+					<p><br/></p>
+					<p>产品类型：{{repairOrder.produType}}</p>
+					<p>业务类型：{{repairOrder.businType}}</p>
+					<p><br/></p>
+					<p>优惠费用：{{orderInfo.PayGift}}元</p>
+					<p>实收费用：{{orderInfo.Payment}}元</p>
+					<p>支付方式：{{repairOrder.payType}}</p>
+					<p>鉴权方式：{{repairOrder.authenType}}</p>
+					<p><br/></p>
+					<p>SIM卡：{{repairOrder.simId}}</p>
+				</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="gap30"></div>
+	
+	<div class="PageBottom">
+		<span class="bottom" ng-click="finishOrder()">确认并签名</span>
+	</div>
+</div>
+<!--提示框-->
+<div class="signform" ng-show="showWrite">
+	<div class="gap36"></div>
+	<div class="tagform">
+        <div class="tf-title">{{test1}}请用正楷体在下方区域签名：</div>
+        <div class="tf-panel" style="height: 130px;background-color: #f2f2f2">
+        </div>
+    </div>
+    <div class="gap36"></div>
+    <div class="sf-btnarea">
+    	<span class="btn btn-color-disable" ng-click="cancelWrite()">返回</span>
+    	<span class="btn btn-color-disable" ng-click="reWrite()">清除</span>
+    	<span class="btn" ng-click="signSub()">完成</span>
+    </div>
+</div>
+</div>
+</div>

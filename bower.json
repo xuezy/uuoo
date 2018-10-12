@@ -1,0 +1,39 @@
+{
+  "name": "zhyyt",
+  "version": "2.0.0",
+  "dependencies": {
+    "jquery": "3.1.1",
+    "angular": "1.4.8",
+    "angular-animate": "1.4.8",
+    "angular-cookies": "1.4.8",
+    "angular-messages": "1.4.8",
+    "angular-resource": "1.4.8",
+    "angular-route": "1.4.8",
+    "angular-sanitize": "1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "restangular": "~1.5.1",
+    "bootstrap": "4.1.3",
+    "smalot-bootstrap-datetimepicker": "smalot/bootstrap-datetimepicker#^2.3.11"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.3.0"
+  },
+  "appPath": "app",
+  "moduleName": "zhyyt",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    },
+    "smalot-bootstrap-datetimepicker": {
+      "main": [
+        "css/bootstrap-datetimepicker.css",
+        "js/bootstrap-datetimepicker.js",
+        "js/locales/bootstrap-datetimepicker.zh-CN.js"
+      ]
+    }
+  }
+}

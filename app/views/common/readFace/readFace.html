@@ -1,0 +1,118 @@
+<!-- 这里是人脸识别页面 -->
+<div class="container-fluid">
+  <div class="row">
+  	<div class="wrapper">
+
+	<div class="netbg">
+		<div class="cen-title cen-title-white">
+    		<span>请将您的头部<span class="tit-keyword">置于参考线内</span></span>
+  		</div>
+  		<div class="zrmiro"></div>
+      <div class="mod-btnarea-back">
+        <span class="bottom  btn_color_disable btn_color_back" >返回</span>
+      </div>
+	</div>
+  	</div>
+  </div>
+</div>
+
+
+
+
+
+<!-- 这里等待工作人员授权页面 -->
+
+<div class="centerdiv"  style="display: none;">
+    <div class="page-title-strong">
+      <h1>业务需要<strong>工作人员进行授权</strong>，已为您呼叫，请稍候…</h1>
+    </div>
+    <div class="page-picture-wait"></div>
+ </div>
+
+<!-- 提示信息Modal -->
+<div class="modal" id="isOK" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 900px;">
+    <div class="modal-content" style="width: 900px; padding: 40px;">
+      <div class="modal-body dialog" style="width: 900px;">
+        <div class="modal-title" style="width: 90%;">身份信息比对中</div>
+        <div class="modalCon" style="width: 90%;">
+          <div class="leftImage">
+            <div class="IConBG">
+            <!-- <img src="images/01.jpg"> -->
+            <img ng-src="{{leftSource}}" alt="身份证头像">
+            </div>
+            <div class="IConBorder"></div>
+          </div>
+          <div class="arrnowIcon">{{compareValue}}%<p>吻合度</p></div>
+          <div class="rightImage">
+            <div class="">
+              <!-- <img src="images/01.jpg"> -->
+            <img ng-src="{{rightSource}}" alt="摄像头头像">
+            </div>
+            <div class="IConBorder" style="left: 562px; top: 11px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 这里是验证成功页面,验证成功后替换成这个页面 -->
+<div  style="display: none;">
+<div class="container">
+        <div class="gap100"></div>
+        <div class="centerdiv">
+        <img class="cen-picicon" src="./images/01cg.png">
+        </div>
+        <div class="cen-txtarea">验证成功！请稍后…</div>
+        <div class="gap30"></div>
+    </div>
+</div>
+<!-- 这里是验证失败页面,验证失败后替换成这个页面 -->
+<div  style="display: none;">
+<div class="container">
+        <div class="gap100"></div>
+        <div class="centerdiv">
+        <img class="cen-picicon" src="./images/01sb.png">
+        </div>
+        <div class="cen-txtarea">验证失败，请重试。</div>
+        <div class="gap30"></div>
+    </div>
+    <div class="footer">
+        <span class="bottom btn-color-disable">退出办理</span>
+        <span class="bottom">重新检验</span>
+    </div>
+</div>
+
+
+
+
+<!--
+
+
+<div class="netbg">
+  		<div class="cen-title cen-title-white">
+    		<span>请将您的头部<span class="tit-keyword">置于参考线内</span></span>
+  		</div>
+  	</div>
+
+
+-->

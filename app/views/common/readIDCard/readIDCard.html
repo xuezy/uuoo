@@ -1,0 +1,54 @@
+<!-- 身份证扫描页面 readIDCard.html -->
+<div ng-show="!resStatus">
+  <div class="cen-title">
+    <span>请将您的<span class="tit-keyword">二代居民身份证</span>放在下方的识别处</span>
+  </div>
+  <div class="cen-picblock">
+    <img class="mycard-dec" src="./images/01sbq.png">
+    <img class="mycard-body" src="./images/01sfz.png">
+  </div>
+</div>
+
+<!-- 这里是读取成功页面,读取成功后替换成这个页面 -->
+<div  ng-show="resStatus === 'success'">
+	<div class="container">
+        <div class="gap100"></div>
+        <div class="centerdiv">
+        <img class="cen-picicon" src="./images/01cg.png">
+        </div>
+        <div class="cen-txtarea">读取成功！请稍后…</div>
+        <div class="gap30"></div>
+    </div>
+</div>
+
+<!-- 这里是读取失败页面,读取失败后替换成这个页面 -->
+<div ng-show="resStatus === 'fail'">
+	<div class="container">
+        <div class="gap100"></div>
+        <div class="centerdiv">
+        <img class="cen-picicon" src="./images/01sb.png">
+        </div>
+        <div class="cen-txtarea">抱歉，您名下的号码已经达到五个，<br>详情请咨询工作人员，谢谢。</div>
+        <div class="gap30"></div>
+    </div>
+    <div class="footer">
+        <span class="bottom btn-color-disable">退出办理</span>
+        <span class="bottom">呼叫客服</span>
+    </div>
+</div>
+
+<!-- 这里是读取超时页面,读取超时后替换成这个页面 -->
+<div ng-show="resStatus === 'overtime'">
+    <div class="container">
+        <div class="gap100"></div>
+        <div class="centerdiv">
+        <img class="cen-picicon" src="./images/01sb.png">
+        </div>
+        <div class="cen-txtarea">抱歉，读取超时。</div>
+        <div class="gap30"></div>
+    </div>
+    <div class="footer">
+        <span class="bottom btn-color-disable">退出办理</span>
+        <span class="bottom">呼叫客服</span>
+    </div>
+</div>

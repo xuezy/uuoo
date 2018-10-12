@@ -1,0 +1,16 @@
+<!-- 支付失败页面 -->
+<div class="centerdiv">
+	<div class="pay_fail"></div>
+	<div class="p8_area_txt">{{failText}}</div>
+</div>
+<div class="footer" style="margin-top: 62px">
+	<span ng-click="exit()" class="bottom btn-color-disable" >退出办理</span>
+	<span ng-click="havePay()" ng-show="havePayShow" class="bottom  btn-color-disable"  >我已支付</span>
+    <span ng-click="payAgain()" class="bottom" >重新支付</span>
+</div>
+<div class="maskLayer" ng-show="payState=='success'">
+	<div class="notice" >
+	  <img src="./images/p3_003.png">
+	  <p>支付成功！请稍候...</p>
+	</div>
+</div>

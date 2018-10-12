@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div class="row">
+<div class="mainPadding" ng-show="checkResult !== 'fail'">
+  <div class="container-left">
+    <div class="number">
+      <h1>请输入五个最近的通话手机号,其中三个为主叫号码</h1>
+      <div ng-click="inputFocus = 'phone1'" class="callFocus"><input ng-model="phone1" maxlength="11" type="text" name="" placeholder="号码1(主叫号码)"></div>
+      <div ng-click="inputFocus = 'phone2'" class="callFocus"><input ng-model="phone2" maxlength="11" type="text" name="" placeholder="号码2(主叫号码)"></div>
+      <div ng-click="inputFocus = 'phone3'" class="callFocus"><input ng-model="phone3" maxlength="11" type="text" name="" placeholder="号码3(主叫号码)"></div>
+      <div ng-click="inputFocus = 'phone4'" class="callFocus"><input ng-model="phone4" maxlength="11" type="text" name="" placeholder="号码4"></div>
+      <div ng-click="inputFocus = 'phone5'" class="callFocus"><input ng-model="phone5" maxlength="11" type="text" name="" placeholder="号码5"></div>
+    </div>
+  </div>
+  <div class="container-right" style="width: 33%;">
+    <ul class="banl">
+      <li class="banlHover" ng-click="typeIn(1)" style="cursor:pointer;">1</li>
+      <li class="keyboard" ng-click="typeIn(2)"  style="cursor:pointer;">2</li>
+      <li class="keyboard" ng-click="typeIn(3)"  style="cursor:pointer;">3</li>
+    </ul>
+    <ul class="banl">
+      <li class="keyboard" ng-click="typeIn(4)"  style="cursor:pointer;">4</li>
+      <li class="keyboard" ng-click="typeIn(5)"  style="cursor:pointer;">5</li>
+      <li class="keyboard" ng-click="typeIn(6)"  style="cursor:pointer;">6</li>
+    </ul>
+    <ul class="banl">
+      <li class="keyboard" ng-click="typeIn(7)"  style="cursor:pointer;">7</li>
+      <li class="keyboard" ng-click="typeIn(8)"  style="cursor:pointer;">8</li>
+      <li class="keyboard" ng-click="typeIn(9)"  style="cursor:pointer;">9</li>
+    </ul>
+    <ul class="banl">
+      <li class="keyboard" ng-click="typeIn('backspace')"  style="cursor:pointer;">←</li>
+      <li class="keyboard" ng-click="typeIn(0)"  style="cursor:pointer;">0</li>
+      <li class="keyboardRed" ng-click="typeIn('clear')">清空</li>
+    </ul>
+  </div>
+  <div style="height: 30px;margin-top: -15px">
+    <div ng-show="focusMoney && typeInMoneyError"style="color:red">{{"请输入10-5000整数"}}</div>
+  </div>
+  </div>
+  <div class="PageBottom">
+    <button type="button" class="bottom btn-color-disable" ng-click="goBack()">上一步</button>
+    <button type="button" class="bottom btn-primary" ng-click="goNext()">下一步</button>
+  </div>
+</div>
+</div>
+
+<div class="maskLayer" ng-show="checkResult=='success'">
+  <div class="notice" >
+    <img src="./images/p3_003.png">
+    <p>验证成功！请稍候...</p>
+  </div>
+</div>
+
+
+<div ng-show="checkResult=='underway'"  class="maskLayer">
+  <div class="notice">
+    <div class="box">    
+        <div class="loading">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>     
+        </div>
+    </div>
+    <p>正在验证,请稍后…</p>
+  </div>
+</div>
+
+<div ng-show="checkResult === 'fail'">
+  <div class="centerdiv">
+    <div class="pay_fail"></div>
+    <div class="p8_area_txt">{{failText}}</div>
+  </div>
+  <div class="footer" style="margin-top: 62px">
+    <span ng-click="exit()" class="bottom btn-color-disable">退出办理</span>
+    <span ng-click="havePay()" ng-show="havePayShow" class="bottom  btn-color-disable">我已支付</span>
+    <span ng-click="payAgain()" class="bottom" >重新支付</span>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+<div class="container-fluid" ng-init="focusMobile1 = true;">
+    <div class="row">
+<div class="mainPadding">
+  <div class="container-left" style="width: 60%;">
+    <div class="number" style="margin-bottom: 20px">
+      <h1 style="margin-bottom: 5px;">请输入手机号</h1>
+      <div ng-click="focusMoney = false; focusMobile1 = true;focusMobile2 = false;isAudio2 = false;" ng-show="!isAudio1" class="mobileFocus" ng-class="{mobileBlur: !focusMobile1, typeError: typeError1}" >
+        <div  style="width: calc(100% - 16px);height: 100%;display: flex;justify-content: center;flex-direction: column;">
+          <input style="height: 30px;width: 100%;font-size: 24px;color:rgb(51,51,51)" type="text"
+        ng-class="{typeFinish: mobile1.length === 11}" 
+        ng-model="mobile1" maxlength="11" ng-trim="false" autofocus="true" />
+          <div style="text-align:center;font-size:16px" ng-if="notEqual">{{'两次输入不一致,请检查重试'}}</div>
+          <div style="text-align:center;font-size:16px" ng-if="mobile1.length === 11 && !notEqual">{{errorMsg.mobile1}}</div>
+        </div>
+        <img ng-hide="focusMobile2" src="images/u384.png" width="16" height="24" style="position:relative;right: 10px;" ng-click="isAudio1 = true;isAudio2 = false;"/>
+        <img ng-hide="!equal||!focusMobile2" src="images/u1926.png" width="16" height="24" style="position:relative;right: 10px;" />
+      </div>
+      <div class="newslist" ng-show="isAudio1" ng-class="{mobileFocus: focus, mobileBlur: !focus, typeError: typeError3}" style="width: 80%;height: 70px;font-size: 24px; display: flex;align-items: center;background-color: white;">
+        <div ng-class="{typeFinish: mobile.length === 11}" style="width: 100%;text-align: center">
+          <div style="height: 30px">请连续报出11位手机号码</div>
+        </div>
+        <div class="searchIcon" ng-click="isAudio1 = false;typeError = false;" style="width: 55px; right: 18px;">
+          <img src="images/searchIcon.png" width="20" height="30" />
+        </div>
+      </div>
+      <h1 style="margin-top: 10px;margin-bottom: 5px;">确认手机号</h1>
+      <div ng-click="focusMoney = false; focusMobile2 = true;focusMobile1 = false;isAudio1 = false;" ng-show="!isAudio2" class="mobileFocus" ng-class="{mobileBlur: !focusMobile2, typeError: typeError2}" >
+        <div style="width: calc(100% - 16px);height: 100%;display: flex;justify-content: center;flex-direction: column;">
+          <input style="height: 30px;width: 100%;font-size: 24px;color:rgb(51,51,51)" type="text" 
+        ng-class="{typeFinish: mobile2.length === 11}" 
+        ng-model="mobile2" maxlength="11" ng-trim="false"
+        ng-focus="focusMoney = false; focusMobile2 = true;focusMobile1 = false"/>
+          <div style="text-align:center;font-size:16px" ng-if="mobile2.length === 11">{{errorMsg.mobile2}}</div>
+        </div>
+        <img ng-hide="!equal||focusMobile2" src="images/u1926.png" width="16" height="24" style="position:relative;right: 10px;" />
+        <img ng-show="focusMobile2" src="images/u384.png" width="16" height="24" style="position:relative;right: 10px;" ng-click="isAudio2 = true;isAudio1 = false;"/>
+      </div>
+      <div class="newslist" ng-show="isAudio2" ng-class="{mobileFocus: focus, mobileBlur: !focus, typeError: typeError3}" style="width: 80%;height: 70px;font-size: 24px; display: flex;align-items: center;background-color: white;">
+        <div ng-class="{typeFinish: mobile.length === 11}" style="width: 100%;text-align: center">
+          <div style="height: 30px">请连续报出11位手机号码</div>
+        </div>
+        <div class="searchIcon" ng-click="isAudio2 = false;typeError = false;" style="width: 55px; right: 18px;">
+          <img src="images/searchIcon.png" width="20" height="30" />
+        </div>
+      </div>
+    </div>
+    <div class="money">
+      <h1 style="margin-bottom: 5px;">请选择充值金额</h1>
+      <!-- repeat money $scope.chargeMoneyList -->
+      <div ng-repeat="oneList in chargeMoneyList" class="moneyBox" ng-click="setPayValue(oneList)" ng-class="{'selectedBorder': chargeMoney === oneList.chargeMoney, noGift: noGift}" style="cursor:pointer;">
+        <p style="font-size:20px;">{{oneList.chargeMoney}}元</p>
+        <p>售价<a href="">{{oneList.salemoney}}</a>元</p>
+        <span ng-show="chargeMoney==oneList.chargeMoney"><img src="images/box.png" width="27" height="27" /></span>
+      </div>
+      <div ng-click="focusMoney = true;focusMobile2=false;focusMobile1 = false;chargeMoney = undefined" class="moneyBox-gray-border activeBorderGreen" style="display: flex;align-items: center;padding:0;justify-content: center;"  ng-class="{typeError: typeInMoneyError}">
+        <input ng-model="typeInMoney" style="font-size:20px;height: 50px;width: 120px;outline:none;border:none;text-align: center" maxlength="4" placeholder="10-5000整数">
+      </div>
+      <div style="clear:both"></div>
+    </div>
+    <div style="height: 30px;margin-top: -10px;position: absolute;">
+      <div ng-show="focusMoney && typeInMoneyError" style="color:rgb(240,78,128)">{{"请输入10-5000整数"}}</div>
+    </div>
+  </div>
+  <div class="container-right" style="width: 33%; padding-top: 60px;">
+    <ul class="banl">
+      <li ng-mouseover="key1Press = true" ng-mouseleave="key1Press = false" ng-class="{banlHover: key1Press, keyboard: !key1Press}" ng-click="typeIn(1)" style="cursor:pointer;">1</li>
+      <li ng-mouseover="key2Press = true" ng-mouseleave="key2Press = false" ng-class="{banlHover: key2Press, keyboard: !key2Press}" ng-click="typeIn(2)"  style="cursor:pointer;">2</li>
+      <li ng-mouseover="key3Press = true" ng-mouseleave="key3Press = false" ng-class="{banlHover: key3Press, keyboard: !key3Press}" ng-click="typeIn(3)"  style="cursor:pointer;">3</li>
+    </ul>
+    <ul class="banl">
+      <li ng-mouseover="key4Press = true" ng-mouseleave="key4Press = false" ng-class="{banlHover: key4Press, keyboard: !key4Press}" ng-click="typeIn(4)"  style="cursor:pointer;">4</li>
+      <li ng-mouseover="key5Press = true" ng-mouseleave="key5Press = false" ng-class="{banlHover: key5Press, keyboard: !key5Press}" ng-click="typeIn(5)"  style="cursor:pointer;">5</li>
+      <li ng-mouseover="key6Press = true" ng-mouseleave="key6Press = false" ng-class="{banlHover: key6Press, keyboard: !key6Press}" ng-click="typeIn(6)"  style="cursor:pointer;">6</li>
+    </ul>
+    <ul class="banl">
+      <li ng-mouseover="key7Press = true" ng-mouseleave="key7Press = false" ng-class="{banlHover: key7Press, keyboard: !key7Press}" ng-click="typeIn(7)"  style="cursor:pointer;">7</li>
+      <li ng-mouseover="key8Press = true" ng-mouseleave="key8Press = false" ng-class="{banlHover: key8Press, keyboard: !key8Press}" ng-click="typeIn(8)"  style="cursor:pointer;">8</li>
+      <li ng-mouseover="key9Press = true" ng-mouseleave="key9Press = false" ng-class="{banlHover: key9Press, keyboard: !key9Press}" ng-click="typeIn(9)"  style="cursor:pointer;">9</li>
+    </ul>
+    <ul class="banl">
+      <li ng-mouseover="key10Press = true" ng-mouseleave="key10Press = false" ng-class="{banlHover: key10Press, keyboard: !key10Press}" ng-click="typeIn('backspace')"  style="cursor:pointer;">←</li>
+      <li ng-mouseover="key11Press = true" ng-mouseleave="key11Press = false" ng-class="{banlHover: key11Press, keyboard: !key11Press}" ng-click="typeIn(0)"  style="cursor:pointer;">0</li>
+      <li ng-mouseover="key12Press = true" ng-mouseleave="key12Press = false" ng-class="{banlHover: key12Press, keyboardRed: !key12Press}" ng-click="typeIn('clear')">清空</li>
+    </ul>
+  </div>
+  </div>
+  <div class="PageBottom">
+    <button type="button" ng-class="{'bottom':equal&&chargeMoney&&paymentMoney&&!typeInMoneyError}" class="bottom-hov" ng-click="goPayment()">立即充值</button>
+  </div>
+  <div ng-show='confirm'  class="maskLayer">
+    <div class="notice"  style="width:550px;height: 300px; padding:45px 40px 40px 40px;">
+      <div style="width: 100%;text-align: left">您正在为</div>
+      <div style="width: 100%;font-size: 28px;text-align: left">{{mobile1}}</div>
+      <div style="width: 100%;text-align: left">充值{{chargeMoney}}元，实际到账<span style="color:#FF9900">{{chargeMoney}}</span>元，支付<span style="color:#009DD9">{{paymentMoney}}</span>元</div>
+      <div style="width: 100%;text-align: left">
+        <p style="font-size:18px; margin-bottom:30px;">提交后订单不可修改，请确认充值号码与金额正确。</p>
+      </div>
+      <div class="footer">
+        <span class="bottom" ng-click="confirm=flase" style=" background:#ccc;border-color:#ccc; ">取消</span>
+        <span class="bottom" ng-click="payConfirm()">确认</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

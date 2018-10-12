@@ -1,0 +1,91 @@
+<!-- 信息确认+协议阅读 页面 -->
+<div class="container-fluid">
+	<div class="row">
+		<div class="wrapper">
+			<div class="container">
+				<div class="container-x">
+					<div class="con-left">
+						<div class="con-title" style="border-bottom: none;">开户信息</div>
+						<div class="subpanel">
+							<div class="infodiv">
+								<p class="infodiv-name">已选套餐</p>
+								<p class="infodiv-val"><strong style="color: #ffa33b;">{{createParams.postageRank}}</strong>元{{createParams.packageType}}</p>
+							</div>
+							<div class="infodiv">
+								<p class="infodiv-name">已选号码</p>
+								<p class="infodiv-val">{{createParams.phoneNum}}</p>
+							</div>
+							<div class="infodiv">
+								<p class="infodiv-name">生效方式</p>
+								<p class="infodiv-val">{{createParams.effectWay}}</p>
+							</div>
+							<div class="infodiv">
+								<p class="infodiv-name">身份信息</p>
+								<p class="infodiv-val">{{createParams.name.slice(0,1)}}XX{{createParams.IDnum}}****</p>
+							</div>
+							<div class="infodiv">
+								<p class="infodiv-name">支付金额</p>
+								<p class="infodiv-val"><strong style="color: #ffa33b;">{{createParams.payMoney}}</strong><strong style="font-size:12px; font-weight:normal;">（预存话费{{createParams.payMoney}}元
+										+ 制卡费0元）</strong></p>
+							</div>
+						</div>
+					</div>
+					<div class="con-right">
+						<div class="con-title" style="padding-left: 20px;">
+							<div>
+								<span style="display:inline-block;">
+									<a href="" style="font-size: 22px;font-weight: bold;">请阅读相关协议:</a>
+									<!-- <p class="LoginMode-line" style="margin-top: 19px; width: auto;"></p> -->
+								</span>
+							</div>
+						</div>
+						<div ng-if="!isNote" class="subpanel" >
+							<div class="pannel-right">
+								<h1 style="text-align:center; font-size:20px;">《中国移动新用户入网协议》</h1>
+								<p ng-bind-html="protocol"></p>
+								<br><br>
+								<h1 style="text-align:center; font-size:20px;">《电信网络违法犯罪责任防范告知书》</h1>
+								<p ng-bind-html="noteProtocol"></p>
+							</div>
+						</div>
+						<div style="padding-left: 20px;"><input type="checkbox" ng-model="isReadProtocol">我已阅读并同意《中国移动通信客户入网服务协议》及《电信网络违法犯罪责任防范告知书》</div>
+					</div>
+				</div>
+				<div class="PageBottom">
+					<span class="bottom btn-color-disable" ng-click="forwardStep()">上一步</span>
+					<span class="bottom" ng-class="{'btn-color-disableGRAY': !isReadProtocol}" ng-click="alertInfo()">下一步</span>
+				</div>
+			</div>
+			<!--这个提示框不知道要不要，先留着-->
+			<div class="signform" style="display: none;">
+				<div class="gap36"></div>
+				<div class="tagform">
+					<div class="tf-title">请用正楷体在下方区域签名：</div>
+					<div class="tf-panel" style="height: 130px;background-color: #f2f2f2">
+					</div>
+				</div>
+				<div class="gap36"></div>
+				<div class="sf-btnarea">
+					<span class="btn btn-color-disable">返回</span>
+					<span class="btn btn-color-disable">清除</span>
+					<span class="btn">完成</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 提示信息Modal -->
+<div class="modal" id="isOK" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-body dialog"><!-- 提示信息 -->
+				<div class="modalCon" style="min-height: 100px; font-size: 28px;">订单提交后，信息不可修改，请确认继续。</div>
+				<div class="footer">
+					<button type="button" class="bottom btn-color-disable" data-dismiss="modal">返回</button>
+					<button type="button" class="bottom btn-primary" ng-click="sendOrder()">确认继续</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

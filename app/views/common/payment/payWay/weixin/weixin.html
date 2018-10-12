@@ -1,0 +1,51 @@
+<!-- 微信支付页面 -->
+<div class="centerdiv">
+	<div class="paymentTab">
+	<button ng-class="{barcode: !nORb, barcodeHover: nORb}" ng-click="nORb=true">条码支付</button>
+	<button ng-class="{barcode: nORb, barcodeHover: !nORb}" ng-click="nORb=false">扫一扫支付</button></div>
+	<div ng-show="nORb" class="p8_area_txt">请打开您的微信付款二维码放置扫码处,剩余时间：<strong>{{timer}}</strong>s</div>
+	<div ng-show="!nORb" class="p8_area_txt">请打开您的扫一扫功能,扫描以下二维码,剩余时间：<strong>{{timer}}</strong>s</div>
+	<img ng-show="nORb" src="./images/bcpic.png" class="p8_Img">
+	<div ng-show="!nORb" id="codeUrl"></div>
+</div>
+<div class="area_btn" style="margin-top: 62px">
+	<span ng-click="open=true" class="bottom btn-color-disable bottom-s">取消支付</span>
+	<span ng-click="otherPay()" class="bottom">其他支付方式</span>
+</div>
+
+<div ng-show='open'   class="mod-notice-success">
+	<div class="notice"  style="width:450px;height: 300px; padding:45px 40px 40px 40px;">
+		<div class="">
+	    <p style="font-size:18px; margin-bottom:30px;">订单尚未支付，取消将停止办理该业务，是否确认取消？</p>
+	    </div>
+		<div class="footer">
+			<span class="bottom btn-color-disable" ng-click="open=flase" >取消</span>
+			<span class="bottom" ng-click="payCancel()">确认</span>
+		</div>
+	</div>
+</div>
+<!--业务办理成功通知框（无按钮）-->
+<div class="mod-notice-success"  ng-show="payState=='success'">
+  <div class="stateicon"></div>
+  <div class="context">支付成功！请稍候...</div>
+</div>
+
+
+
+<div ng-show="payState=='underway'"  class="maskLayer">
+	<div class="notice">
+		<div class="box">    
+		    <div class="loading">
+		        <i></i>
+		        <i></i>
+		        <i></i>
+		        <i></i>
+		        <i></i>
+		        <i></i>
+		        <i></i>
+		        <i></i>     
+		    </div>
+		</div>
+		<p>正在进行支付…</p>
+	</div>
+</div>
