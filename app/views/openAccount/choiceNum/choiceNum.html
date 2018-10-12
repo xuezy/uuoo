@@ -1,0 +1,122 @@
+<!-- 选择电话号码页面 -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="wrapper">
+      <div class="main">
+        <div class="column-top" ng-show="showSearch">
+          <h1>选号列表（<a href="">{{page.pageNo}}</a>/{{page.allPage}})</h1>
+          <span ng-click="searchNum()" class="NumberSearch"><i class="fa fa-search"></i><input type="" value="查找号码"></span>
+        </div>
+        <!-- 第一种页面 start -->
+        <div class="column-shop" ng-show="showSearch">
+          <!-- 号码展示 start -->
+          <div class="btnPageNext" ng-click="beforePage()"><div ng-class="{true: 'PageActive',false: 'PageBefore'}[onePageStateBefore]"><i class="fa fa-angle-left"></i></div></div><!-- 箭头 start -->
+          <div ng-class="{true: 'moneyBox-hover', false: 'moneyBox'}[oneNum.phoneNum === selectNumber]" style="width:210px;margin-right:10px;"
+            ng-click="selectNum(oneNum)" ng-repeat="oneNum in numberList">
+            <h2>{{oneNum.phoneNum}}</h2>
+            <p ng-if="oneNum.fare !== '0'">预存<a href="">{{oneNum.fare}}</a>元话费</p>
+            <p ng-if="oneNum.fare === '0'">免费</p>
+          </div>
+          <div class="btnPage" ng-click="nextPage()"><!-- <img src="images/u71.png" width="23" height="40" /> -->
+          <div ng-class="{true: 'PageActive',false: 'PageBefore'}[onePageStateAfter]"><i class="fa fa-angle-right" ></i></div></div><!-- 箭头 end -->
+          <!-- 号码展示 end -->
+        </div>
+        <!-- 第一种页面 end -->
+        
+        <!-- 第二种页面 start -->
+        <div class="column-shop" ng-show="!showSearch" style="padding-top: 80px;">
+          <div class="container-left" style="width: 70%;">
+            <div class="number">
+              <span class="numberBox" style="width:84%;">
+                <input type="text" value="" placeholder="请输入您喜欢的数字" 
+                ng-model="phoneNumber" 
+                ng-change="getNumberList()"/>
+                <i class="fa fa-microphone"></i>
+            </div>
+            <div class="money">
+              <h1>为您找到<strong class="msgBlue">{{allNumberList.length}}</strong> 个号码（<strong class="msgBlue">{{page.pageNo}}</strong>/{{page.allPage}}）</h1>
+              <!-- 号码展示 start -->
+              <div class="btnPageNext" ng-click="beforePage()"><img src="images/u1367.png" width="23" height="40" /></div><!-- 箭头 start -->
+              <div ng-class="{true: 'moneyBox-hover', false: 'moneyBox'}[oneNum.phoneNum === selectNumber]" style="width:210px;margin-right:10px;"
+                ng-click="selectNum(oneNum)" ng-repeat="oneNum in numberList">
+                <p style="font-size:18px; color: #797979;">{{oneNum.phoneNum}}</p>
+                <p ng-if="oneNum.fare !== '0'">预存<a href="">{{oneNum.fare}}</a>元话费</p>
+                <p ng-if="oneNum.fare === '0'">免费</p>
+              </div>
+              <div class="btnPage" style="left: 750px;" ng-click="nextPage()"><img src="images/u71.png" width="23" height="40" /></div><!-- 箭头 end -->
+              <!-- 号码展示 end -->
+            </div>
+          </div>
+          <div class="container-right">
+            <ul class="banl">
+              <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '1']" ng-click="setNumber('1')">1</li>
+              <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '2']" ng-click="setNumber('2')">2</li>
+              <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '3']" ng-click="setNumber('3')">3</li>
+            </ul>
+            <ul class="banl">
+              <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '4']" ng-click="setNumber('4')">4</li>
+              <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '5']" ng-click="setNumber('5')">5</li>
+              <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '6']" ng-click="setNumber('6')">6</li>
+            </ul>
+            <ul class="banl">
+              <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '7']" ng-click="setNumber('7')">7</li>
+              <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '8']" ng-click="setNumber('8')">8</li>
+              <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '9']" ng-click="setNumber('9')">9</li>
+            </ul>
+            <ul class="banl">
+              <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === 'backspace']" ng-click="setNumber('backspace')"><i class="fa fa-mail-reply"></i></li>
+              <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '0']" ng-click="setNumber('0')">0</li>
+              <li ng-class="{true: 'banlHover', false: 'keyboardRed'}[focusNumber === '清空']" ng-click="setNumber('清空')">清空</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 第二种页面 end -->
+      </div>
+      <div class="PageBottom">
+        <span class="bottom btn-color-disable" ng-show="showSearch" ng-click="forwardStep()">上一步</span>
+        <span class="bottom btn-color-disable" ng-show="!showSearch" ng-click="cancelSearch()">取消搜索</span>
+        <span class="bottom" ng-click="alertInfo()">下一步</span>
+      </div>
+    </div>
+  </div>
+  
+<!-- 提示信息Modal -->
+<div class="modal" id="isOK" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body dialog" ng-show="!isCheck"><!-- 提示信息 -->
+        <div class="modal-title">您已选择号码</div>
+        <div class="modalCon">{{selectNumber}}</div>
+        <div class="modalTips" ng-show="!do2Show">费用: 预存<strong style="color: #ffa33b;">{{selectNumberFare}}</strong>元话费 </div>
+        <div class="footer">
+        <button type="button" class="bottom btn-color-disable" data-dismiss="modal">返回</button>
+        <button type="button" class="bottom btn-primary" ng-click="nextStep()" ng-show="!do2Show">确认</button>
+        </div>
+      </div>
+      <div class="modal-body" ng-show="isCheck && isSuccess"><!-- 成功信息 -->
+        <div class="container">
+          <div class="gap100"></div>
+          <div class="centerdiv">
+            <img class="cen-picicon" src="./images/01cg.png">
+          </div>
+          <div class="cen-txtarea">选号成功，请稍后…</div>
+          <div class="gap30"></div>
+          </div>
+      </div>
+      <div class="modal-body" ng-show="isCheck && !isSuccess"><!-- 失败信息 -->
+        <div class="container">
+          <div class="gap100"></div>
+          <div class="centerdiv">
+            <img class="cen-picicon" src="../../../images/01sb.png">
+          </div>
+          <div class="cen-txtarea">抱歉，您选的号码刚刚被人占了，请重新选择</div>
+          <div class="gap30"></div>
+        </div>
+        <div class="footer">
+          <span class="bottom btn-color-disable" data-dismiss="modal" ui-sref="home">退出办理</span>
+          <span class="bottom" data-dismiss="modal">重新选号</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

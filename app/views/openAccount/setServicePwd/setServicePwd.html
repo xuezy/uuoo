@@ -1,0 +1,74 @@
+<!-- 设置服务密码 页面 -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="wrapper">
+      <div class="contPadding" style="padding-top: 80px;">
+        <div class="container-left">
+          <div class="number">
+            <h1>设置您的服务密码</h1>
+            <div class="Password">
+              <ul>
+                <li><input name="" type="password" ng-model="password[0]" /></li>
+                <li><input name="" type="password" ng-model="password[1]" /></li>
+                <li><input name="" type="password" ng-model="password[2]" /></li>
+                <li><input name="" type="password" ng-model="password[3]" /></li>
+                <li><input name="" type="password" ng-model="password[4]" /></li>
+                <li><input name="" type="password" ng-model="password[5]" /></li>
+              </ul>
+            </div>
+            <div class="btnPage" style="right:46%; top:230px;" ng-show="password.length >= 6"><img src="images/u1926.png" width="24" height="18" /></div>
+          </div>
+          <div class="money">
+            <h1 style="margin-left: 0;">设置您的服务密码</h1>
+            <div class="Password">
+              <ul>
+                <li><input name="" type="password" ng-model="password[6]" /></li>
+                <li><input name="" type="password" ng-model="password[7]" /></li>
+                <li><input name="" type="password" ng-model="password[8]" /></li>
+                <li><input name="" type="password" ng-model="password[9]" /></li>
+                <li><input name="" type="password" ng-model="password[10]" /></li>
+                <li><input name="" type="password" ng-model="password[11]" /></li>
+              </ul>
+            </div>
+            <div class="btnPage" style="right:46%; top:340px;" ng-show="password.length === 12"><img src="images/u1926.png" width="24" height="18" /></div>
+            <p style="color: #f04e80; font-size: 14px;" ng-if="!errorInfo && password.length === 12">两次输入的密码不相同</p>
+          </div>
+          <div class="money">
+            <div class="PasswordTips">
+              <p style="color:#999;">操作说明：</p>
+              <p>点击右侧数字键盘，输入6位服务密码.
+                密码不能为超过5位的连号、重号。</p>
+            </div>
+          </div>
+        </div>
+        <div class="container-right">
+          <ul class="banl">
+            <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '1']" ng-click="setNum('1')">1</li>
+            <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '2']" ng-click="setNum('2')">2</li>
+            <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '3']" ng-click="setNum('3')">3</li>
+          </ul>
+          <ul class="banl">
+            <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '4']" class="keyboard" ng-click="setNum('4')">4</li>
+            <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '5']" class="keyboard" ng-click="setNum('5')">5</li>
+            <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '6']" class="keyboard" ng-click="setNum('6')">6</li>
+          </ul>
+          <ul class="banl">
+            <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '7']" class="keyboard" ng-click="setNum('7')">7</li>
+            <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '8']" class="keyboard" ng-click="setNum('8')">8</li>
+            <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '9']" class="keyboard" ng-click="setNum('9')">9</li>
+          </ul>
+          <ul class="banl">
+            <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === 'backspace']" ng-click="setNum('backspace')">←</li>
+            <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '0']" ng-click="setNum('0')">0</li>
+            <li ng-class="{true: 'banlHover', false: 'keyboard'}[focusNumber === '清空']" ng-click="setNum('清空')">清空</li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="PageBottom">
+        <span class="bottom btn-color-disable" ng-click="goNextStep()">跳过</span>
+        <span class="bottom btn-color-disable" ng-click="forwardStep()">上一步</span>
+        <span class="bottom" ng-click="nextStep()">下一步</span>
+      </div>
+    </div>
+  </div>

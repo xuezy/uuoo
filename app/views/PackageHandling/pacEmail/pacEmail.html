@@ -1,0 +1,28 @@
+<!-- 发送电子邮件 -->
+<div class="main">
+  <h1 class="mailTit">请填写您的电子邮箱</h1>
+ <div class="mailBox">
+   <input type="text" id="emailLeft" style="width:100px;border:2px solid #BFEFFF" ng-focus="left = true; right = false;" ng-model="emailLeft"/>@<input type="text" id="emailRight" style="border:2px solid #F2F2F2"  ng-focus="left = false; right = true;" ng-model="emailRight" />
+   <img src="images/u1926.png" width="20" height="14"  ng-show="corretEmail"/>
+   <span style="color:red;" ng-show="!corretEmail">请输入正确的邮箱格式</span>
+ </div>
+ <div class="capsLock">
+   <p>
+     <span ng-click="typeIn(1)">1</span><span ng-click="typeIn(2)">2</span><span ng-click="typeIn(3)">3</span><span ng-click="typeIn(4)">4</span><span ng-click="typeIn(5)">5</span><span ng-click="typeIn(6)">6</span><span ng-click="typeIn(7)">7</span><span ng-click="typeIn(8)">8</span><span ng-click="typeIn(9)">9</span><span ng-click="typeIn(0)">0</span><span ng-click="typeIn('backspace')">←</span>
+   </p>
+   <p>
+     <span ng-click="typeIn('q')">Q</span><span ng-click="typeIn('w')">W</span><span ng-click="typeIn('e')">E</span><span ng-click="typeIn('r')">R</span><span ng-click="typeIn('t')">T</span><span ng-click="typeIn('y')">Y</span><span ng-click="typeIn('u')">U</span><span ng-click="typeIn('i')">I</span><span ng-click="typeIn('o')">O</span><span ng-click="typeIn('p')">P</span>
+   </p>
+   <p>
+     <span ng-click="typeIn('a')">A</span><span ng-click="typeIn('s')">S</span><span ng-click="typeIn('d')">D</span><span ng-click="typeIn('f')">F</span><span ng-click="typeIn('g')">G</span><span ng-click="typeIn('h')">H</span><span ng-click="typeIn('j')">J</span><span ng-click="typeIn('k')">K</span><span ng-click="typeIn('l')">L</span>
+   </p>
+   <p>
+     <span ng-click="typeIn('z')">Z</span><span ng-click="typeIn('x')">X</span><span ng-click="typeIn('c')">C</span><span ng-click="typeIn('v')">V</span><span ng-click="typeIn('b')">B</span><span ng-click="typeIn('n')">N</span><span ng-click="typeIn('m')">M</span><span ng-click="typeIn('.')">.</span><span ng-click="typeIn('_')">_</span><span ng-click="typeIn('clear')">清除</span>
+   </p>
+   </div>
+</div>
+<div style="text-align: center">
+ <span class="bottom" style="background:#666;" ng-click="return()">返回</span>
+ <span class="bottom" ng-click="complete()">完成</span>
+
+</div>

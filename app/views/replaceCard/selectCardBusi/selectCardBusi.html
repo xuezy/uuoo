@@ -1,0 +1,108 @@
+<div class="container-fluid" ng-init="focusMobile = true;">
+    <div class="row">
+<div class="mainPadding" ng-show="checkResult !== 'fail'">
+  <div class="container-left">
+    <div class="number">
+    	<h1>请输入手机号</h1>
+      <div ng-click="focusMobile = true;" ng-show="!isAudio" class="mobileFocus" ng-class="{mobileBlur: !focusMobile, typeError: typeError}" >
+        <div  style="width: calc(100% - 16px);height: 100%;display: flex;justify-content: center;flex-direction: column;">
+          <input style="height: 30px;width: 100%;font-size: 24px;color:rgb(51,51,51)" type="text"
+        ng-class="{typeFinish: phone.length === 11}" 
+        ng-model="phone" maxlength="11" ng-trim="false" autofocus="true" />
+          <div style="text-align:center;font-size:16px" ng-if="phone.length === 11">{{errorMsg}}</div>
+        </div>
+        <img src="images/u384.png" width="16" height="24" style="position:relative;right: 10px;" ng-click="isAudio = true;"/>
+      </div>
+      <div class="newslist" ng-show="isAudio" ng-class="{mobileFocus: focus, mobileBlur: !focus, typeError: typeError}" style="width: 80%;height: 70px;font-size: 24px; display: flex;align-items: center;background-color: white;">
+        <div ng-class="{typeFinish: phone.length === 11}" style="width: 100%;text-align: center">
+          <div style="height: 30px">请连续报出11位手机号码</div>
+        </div>
+        <div class="searchIcon" ng-click="isAudio = false;typeError = false;" style="width: 55px; right: 18px;">
+          <img src="images/searchIcon.png" width="20" height="30" />
+        </div>
+      </div>
+    </div>
+          <div class="column-shop" style="padding:0;">
+          	<h1>请输入您的手机卡状态</h1>
+          	<div class="verbtn verbtnRetrieve" ng-class="{'verbtn-hover': cardBusi === '01'}" ng-click="cardBusi = '01'">
+		    	<span>手机卡遗失</span>
+		    	<p>通过身份校验申请补发手机卡</p>
+		    	<div></div>
+		    </div>
+		    <div class="verbtn verbtnRetrieve"  ng-class="{'verbtn-hover': cardBusi === '02'}" ng-click="cardBusi = '02'">
+		    	<span>手机卡还在</span>
+		    	<p>通过身份校验申请补发手机卡</p>
+		    	<div></div>
+            </div>
+          </div>
+  </div>
+  <div class="container-right" style="width: 33%;">
+    <ul class="banl">
+      <li ng-mouseover="key1Press = true" ng-mouseleave="key1Press = false" ng-class="{banlHover: key1Press, keyboard: !key1Press}" ng-click="typeIn(1)" style="cursor:pointer;">1</li>
+      <li ng-mouseover="key2Press = true" ng-mouseleave="key2Press = false" ng-class="{banlHover: key2Press, keyboard: !key2Press}" ng-click="typeIn(2)"  style="cursor:pointer;">2</li>
+      <li ng-mouseover="key3Press = true" ng-mouseleave="key3Press = false" ng-class="{banlHover: key3Press, keyboard: !key3Press}" ng-click="typeIn(3)"  style="cursor:pointer;">3</li>
+    </ul>
+    <ul class="banl">
+      <li ng-mouseover="key4Press = true" ng-mouseleave="key4Press = false" ng-class="{banlHover: key4Press, keyboard: !key4Press}" ng-click="typeIn(4)"  style="cursor:pointer;">4</li>
+      <li ng-mouseover="key5Press = true" ng-mouseleave="key5Press = false" ng-class="{banlHover: key5Press, keyboard: !key5Press}" ng-click="typeIn(5)"  style="cursor:pointer;">5</li>
+      <li ng-mouseover="key6Press = true" ng-mouseleave="key6Press = false" ng-class="{banlHover: key6Press, keyboard: !key6Press}" ng-click="typeIn(6)"  style="cursor:pointer;">6</li>
+    </ul>
+    <ul class="banl">
+      <li ng-mouseover="key7Press = true" ng-mouseleave="key7Press = false" ng-class="{banlHover: key7Press, keyboard: !key7Press}" ng-click="typeIn(7)"  style="cursor:pointer;">7</li>
+      <li ng-mouseover="key8Press = true" ng-mouseleave="key8Press = false" ng-class="{banlHover: key8Press, keyboard: !key8Press}" ng-click="typeIn(8)"  style="cursor:pointer;">8</li>
+      <li ng-mouseover="key9Press = true" ng-mouseleave="key9Press = false" ng-class="{banlHover: key9Press, keyboard: !key9Press}" ng-click="typeIn(9)"  style="cursor:pointer;">9</li>
+    </ul>
+    <ul class="banl">
+      <li ng-mouseover="key10Press = true" ng-mouseleave="key10Press = false" ng-class="{banlHover: key10Press, keyboard: !key10Press}" ng-click="typeIn('backspace')"  style="cursor:pointer;">←</li>
+      <li ng-mouseover="key11Press = true" ng-mouseleave="key11Press = false" ng-class="{banlHover: key11Press, keyboard: !key11Press}" ng-click="typeIn(0)"  style="cursor:pointer;">0</li>
+      <li ng-mouseover="key12Press = true" ng-mouseleave="key12Press = false" ng-class="{banlHover: key12Press, keyboardRed: !key12Press}" ng-click="typeIn('clear')">清空</li>
+    </ul>
+  </div>
+  <div style="height: 30px;margin-top: -15px">
+    <div ng-show="focusMoney && typeInMoneyError"style="color:red">{{"请输入10-5000整数"}}</div>
+  </div>
+  </div>
+  <div class="PageBottom">
+    <button type="button" class="bottom btn-color-disable" ng-click="goBack()">退出办理</button>
+    <button type="button" class="bottom btn-primary" ng-click="goNext()">下一步</button>
+  </div>
+</div>
+</div>
+
+<div class="maskLayer" ng-show="checkResult=='success'">
+  <div class="notice" >
+    <img src="./images/p3_003.png">
+    <p>验证成功！请稍候...</p>
+  </div>
+</div>
+
+
+<div ng-show="checkResult=='underway'"  class="maskLayer">
+  <div class="notice">
+    <div class="box">    
+        <div class="loading">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>     
+        </div>
+    </div>
+    <p>正在验证,请稍后…</p>
+  </div>
+</div>
+
+<div ng-show="checkResult === 'fail'">
+  <div class="centerdiv">
+    <div class="pay_fail"></div>
+    <div class="p8_area_txt">{{failText}}</div>
+  </div>
+  <div class="footer" style="margin-top: 62px">
+    <span ng-click="exit()" class="bottom btn-color-disable">退出办理</span>
+    <span ng-click="havePay()" ng-show="havePayShow" class="bottom  btn-color-disable">我已支付</span>
+    <span ng-click="payAgain()" class="bottom" >重新支付</span>
+  </div>
+</div>

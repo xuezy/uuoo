@@ -1,0 +1,180 @@
+<!-- 套餐选择页面 -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="wrapper">
+      <div class="main">
+        <div class="between-left">
+          <div class="sidebar-title">选择主套餐</div>
+          <div class="sidebar-cont">
+            <ul>
+              <li ng-class="{true: 'listHover', false: 'sidebar-list' }[$index == packageIndex]" ng-repeat="onePackage in packageList"
+                ng-click="setPackage($index)">
+                <h1>{{onePackage.packageType}}</h1>
+               <div> <span style=" width: 66%; font-size: 18px;">{{onePackage.packageDesc}}</span><span style="font-size:14px; width: 34%;"><strong>{{onePackage.postageDesc}}</strong>元/月起</span></div>
+                
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="between-right" >
+          <div class="sidebar-title" style="border-bottom: 2px solid #cccccc; padding-left: 0px;">选择资费</div>
+          <div class="group">
+            <ul>
+              <li ng-class="{true: 'list-rightHover', false: 'list-right'}[$index === feeIndex]" ng-click="setFee($index)"
+                ng-repeat="oneRank in packageList[packageIndex].postageRankList track by $index">{{oneRank}}元/月</li>
+            </ul>
+          </div>
+          <div style="clear: both;"></div>
+          <div class="money" style="margin-top: 20px;">
+            <ul style="padding-top:15px; border-bottom: 2px solid #cccccc;">
+              <li ng-click="feeIntroduceIndex = 0" style="display:inline-block; width:22.5%;"><a href="" class="Login-mode">资费介绍</a>
+                 <p class="LoginMode-line" ng-show="feeIntroduceIndex === 0"></p> </li>
+              <li ng-click="feeIntroduceIndex = 1" style="display:inline-block; width:22.5%;"><a href="" class="Login-mode">套餐详情</a>
+                <p class="LoginMode-line" ng-show="feeIntroduceIndex === 1"></p> </li>
+              <li ng-click="feeIntroduceIndex = 2" style="display:inline-block; width:22.5%;"><a href="" class="Login-mode">温馨提示</a>
+                 <p class="LoginMode-line" ng-show="feeIntroduceIndex === 2"></p> </li>
+            </ul>
+            <div class="betweenTab" style="padding-top: 10px">
+              <!-- <div ng-show="feeIntroduceIndex === 0" ng-bind-html="packageList[packageIndex].postageIntroduce"></div>  --> 
+                <!-- {{packageList[packageIndex].postageIntroduce}} -->
+                <div ng-show="feeIntroduceIndex === 0"><table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-bottom: 2px solid #dadada;">
+                <tr>
+                  <td width="14%" height="26" align="center" bgcolor="#ffffff" style="color:#333;"
+                    ng-repeat="title in packageList[packageIndex].postageIntroduce[0]"
+                  >{{title}}</td>
+                  <!-- <td width="7%" height="26" align="center" bgcolor="#ffffff" style="color:#333;">资费</td>
+                  <td width="14%" height="26" align="center" bgcolor="#ffffff" style="color:#333;">国内拨打时长</td>
+                  <td width="17%" height="26" align="center" bgcolor="#ffffff" style="color:#333;">国内流量</td>
+                  <td width="17%" height="26" align="center" bgcolor="#ffffff" style="color:#333;">手机宽带速率</td>
+                  <td width="20%" height="26" align="center" bgcolor="#ffffff" style="color:#333;">4K电视业务台数</td>
+                  <td width="11%" height="26" align="center" bgcolor="#ffffff" style="color:#333;">IMS固话</td>
+                  <td width="14%" height="26" align="center" bgcolor="#ffffff" style="color:#333;">家庭共享服务</td> -->
+                </tr>
+              </table>
+               <div style="max-height: 330px; overflow-y:auto;" >
+                <table width="99.9%" border="0" cellspacing="0" cellpadding="0">
+                  <tr ng-repeat="oneList in packageList[packageIndex].postageIntroduce.slice(1)" bgcolor="{{$index%2 == 0? '#ffffff': '#cccccc'}}">
+                    <td width="14%" align="center"  ng-repeat="onefee in oneList track by $index">{{onefee}}</td>
+                    <!-- <td width="12%" rowspan="4" align="center" bgcolor="#f4f5f5">
+                      <p>可添加2个副号，</p>
+                      <p>组建家庭共享群</p>
+                    </td> -->
+                  </tr>
+                  <!-- <tr>
+                    <td width="8%" align="center" bgcolor="#ffffff">88元/月</td>
+                    <td width="11%" align="center" bgcolor="#ffffff">300分钟</td>
+                    <td width="17%" align="center" bgcolor="#ffffff">
+                      <p>10G</p>
+                      <p>（不限量，达量降速）</p>
+                    </td>
+                    <td width="22%" align="center" bgcolor="#ffffff">
+                      <p>最高100M</p>
+                      <p>（以当地实际可安装带率为准）</p>
+                    </td>
+                    <td width="14%" align="center" bgcolor="#ffffff">-</td>
+                    <td width="17%" align="center" bgcolor="#ffffff">-</td>
+                    <td width="12%" rowspan="4" align="center" bgcolor="#f4f5f5">
+                      <p>可添加2个副号，</p>
+                      <p>组建家庭共享群</p>
+                    </td>
+                  </tr>
+                  <tr align="center">
+                    <td bgcolor="#f4f5f5">128元/月</td>
+                    <td bgcolor="#f4f5f5">400分钟</td>
+                    <td bgcolor="#f4f5f5">
+                      <p>20G</p>
+                      <p>（不限量，达量降速）</p>
+                    </td>
+                    <td bgcolor="#f4f5f5">
+                      <p>最高200M</p>
+                      <p>（以当地实际可安装带率为准）</p>
+                    </td>
+                    <td bgcolor="#f4f5f5">1台</td>
+                    <td bgcolor="#f4f5f5" style="border-right: 3px solid #fff;">-</td>
+                  </tr>
+                  <tr align="center">
+                    <td bgcolor="#ffffff">188元/月</td>
+                    <td bgcolor="#ffffff">500分钟</td>
+                    <td bgcolor="#ffffff">
+                      <p>30G</p>
+                      <p>（不限量，达量降速）</p>
+                    </td>
+                    <td bgcolor="#ffffff">
+                      <p>最高300M</p>
+                      <p>（以当地实际可安装带率为准）</p>
+                    </td>
+                    <td bgcolor="#ffffff">-</td>
+                    <td bgcolor="#ffffff">-</td>
+                  </tr>
+                  <tr align="center">
+                    <td bgcolor="#f4f5f5">238元/月</td>
+                    <td bgcolor="#f4f5f5">600分钟</td>
+                    <td bgcolor="#f4f5f5">
+                      <p>40G</p>
+                      <p>（不限量，达量降速）</p>
+                    </td>
+                    <td bgcolor="#f4f5f5">
+                      <p>最高400M</p>
+                      <p>（以当地实际可安装带率为准）</p>
+                    </td>
+                    <td bgcolor="#f4f5f5">1台</td>
+                    <td bgcolor="#f4f5f5" style="border-right: 3px solid #fff;">-</td>
+                  </tr> -->
+
+                </table>
+             </div>
+              </div>
+              <div ng-show="feeIntroduceIndex === 1" ng-bind-html="packageList[packageIndex].packageDetails" style="max-height: 330px;overflow-y: auto;">
+                {{packageList[packageIndex].packageDetails}}
+              </div>
+              <div ng-show="feeIntroduceIndex === 2" ng-bind-html="packageList[packageIndex].friendlyTips" style="max-height: 330px;overflow-y: auto;">
+                {{packageList[packageIndex].friendlyTips}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="PageBottom">
+        <span class="bottom btn-color-disable" ng-click="exitDo()">取消办理</span>
+        <span class="bottom" ng-click="nextStep()">下一步</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 提示信息Modal -->
+<div class="modal" id="isOK1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body dialog">
+        <div class="modal-title">你已选择</div>
+        <div class="modalCon">{{packageList[packageIndex].packageType}} <strong style="color: #ffa33b;">{{packageList[packageIndex].postageRankList[feeIndex]}}</strong>元/月</div>
+
+       <!--  <div class="modalTips" ng-show="!do2Show">温馨提示:<a href="">本月不足一个月，依然{{packageList[packageIndex].postageRankList[feeIndex]}}元一月扣费，立享套餐内服务</a> </div> -->
+        
+        <div class="dalogMain" ng-show="do2Show || true" style="padding-left: 60px;">
+          <div class="modalBanl" 
+               ng-click="setActive(1)"
+               ng-class="{true: 'modalBanl-hover',false:''}[activeType === 1]">
+            <h1>立即生效</h1>
+            <p>本月不足一个月，依然{{packageList[packageIndex].postageRankList[feeIndex]}}元/月扣费，立享套餐内服务</p>
+          </div>
+          <div class="modalBanl"
+               ng-click="setActive(2)"
+               ng-class="{true: 'modalBanl-hover',false:''}[activeType === 2]">
+            <h1>下月生效</h1>
+            <p>下个月开始{{packageList[packageIndex].postageRankList[feeIndex]}}元/月本月按基础资费扣费</p>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="footer">
+          <button type="button" class="bottom btn-color-disable" data-dismiss="modal">返回</button>
+          <button type="button" class="bottom btn-primary" ng-click="do1()" ng-show="!do2Show && false">确认</button>
+          <button type="button" class="bottom btn-primary" ng-click="do2()" ng-show="do2Show || true">确认</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

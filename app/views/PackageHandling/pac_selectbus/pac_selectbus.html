@@ -1,0 +1,59 @@
+<div>
+  <div class="wrapper">
+  <div class="contPadding">
+    <div class="column-top" style="border-bottom: none;">
+        <div ng-show="!isAudio" class="number">
+            <span class="helpSearch">
+              <input type="text" value="您想办理什么业务？" />
+              <img src="images/u384.png" width="22" height="31" ng-click="isAudio = true;typeError = false;" /></span>
+          </div>
+          <div ng-show="isAudio"  style="width: 83%; font-size: 24px; display: flex;align-items: center;background-color: white;margin-bottom: 30px">
+            <div style="width: 100%;text-align: center; position: relative;">
+              <div class="newslist">
+              <div>你可以说：</div>
+                <div id="slide">
+                  <div id="slide1"> 
+                      <p>"我要改套餐"</p>
+                      <p>"我要买流量"</p>
+                      <p>"国际漫游"</p>
+                      <p>"......"</p>
+                  </div>
+                  <div id=slide2></div>
+              </div>
+              </div>
+              <audio-animation></audio-animation>
+            </div>
+            <div class="searchIcon">
+              <img src="images/searchIcon.png" width="20" height="30" ng-click="isAudio = false;typeError = false;"/>
+            </div>
+          </div>
+      </div>
+      <div class="column-shop">
+        <ul>
+              <!-- <li ng-repeat="onelist in serviceList" ng-click="serveName(onelist)"><span><img src="../images/{{onelist.bizCode}}.png" width="51" height="51" /></span>{{onelist.bizName}}</li> -->
+              <li ng-click="serveName()"><span><img src="images/001.png" width="51" height="51" /></span>4G套餐</li>
+              <li><span><img src="images/002.png" width="51" height="51" /></span>流量业务</li>
+              <li><span><img src="images/003.png" width="51" height="51" /></span>国际/港澳台</li>
+              <li><span><img src="images/004.png" width="51" height="51" /></span>增值业务</li>
+              <li><span><img src="images/005.png" width="51" height="51" /></span>WLAN套餐</li>
+              <li><span><img src="images/006.png" width="51" height="51" /></span>VoLTE高清</li>
+              <li><span><img src="images/007.png" width="51" height="51" /></span>基础功能</li>
+              <li><span><img src="images/008.png" width="51" height="51" /></span>其他</li>
+          </ul>
+      </div>
+       <div class="scroll">
+            <span class="iconBackg scrollPage"></span>
+              <span class="scrollPage"></span>
+              <span class="scrollPage"></span>
+          </div>
+          <div class="btnPage"><img src="images/u71.png" width="23" height="40" /></div>
+  </div>
+  
+  </div>
+</div>
+<style>
+
+#slide{position:absolute;height:22px;width:83%;overflow:hidden; top: 40px; left: 8%;}
+ #slide p{height:24px;line-height:24px;overflow:hidden;font-family:'微软雅黑'; font-size: 20px; color: #00cdbd;}
+ #slide span{float:right}
+</style>

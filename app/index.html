@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+     <link rel="stylesheet" href="styles/font-awesome.css">
+    <!-- endbuild -->
+    <style>.modal {z-index: 9999;}</style>
+  </head>
+  <body ng-app="zhyyt">
+    <div ui-view style="height: 100%; width: 100%"></div>
+    <com-tips></com-tips> <!--提示信息-->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/restangular/dist/restangular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/smalot-bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="bower_components/smalot-bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/plugins/JSBridge.js"></script>
+    <script src="scripts/plugins/jQqrcode.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/run.js"></script>
+    <script src="scripts/directive/input.directive.js"></script>
+    <script src="views/layout/_header.js"></script>
+    <script src="views/main/main.controller.js"></script>
+    <script src="views/main/main.service.js"></script>
+    <script src="views/home/home.ctrl.js"></script>
+    <!-- common页面 start-->
+    <script src="views/common/common.service.js"></script>
+    <script src="views/common/readFace/readFace.controller.js"></script>
+    <script src="views/common/payMian/payMian.controller.js"></script>
+    <script src="views/common/payMian/payMian.service.js"></script>
+   <!--  <script src="views/common/barcode/barcode.controller.js"></script>  
+    <script src="views/common/barcode/barcode.service.js"></script> -->
+    <script src="views/common/payment/payWay/alipay/alipay.controller.js"></script>  
+    <script src="views/common/payment/payWay/cmpay/cmpay.controller.js"></script>  
+    <script src="views/common/payment/payWay/unionpay/unionpay.controller.js"></script>  
+    <script src="views/common/payment/payWay/weixin/weixin.controller.js"></script>  
+    <script src="views/common/payment/payResult/timeout/timeout.controller.js"></script>
+    <script src="views/common/fail/fail.controller.js"></script>
+    <script src="views/common/fail/fail.service.js"></script>
+    <script src="views/common/payment/payResult/chargeFail/chargeFail.controller.js"></script>
+    <script src="views/common/payment/payResult/chargeFail/chargeFail.service.js"></script>
+    <script src="views/common/payment/payResult/chargeSuccess/chargeSuccess.controller.js"></script>
+    <script src="views/common/payment/payResult/chargeSuccess/chargeSuccess.service.js"></script>
+    <script src="views/common/payment/payWay/cash/pay_cash.ctrl.js"></script>
+    <script src="views/common/payment/payWay/cash/pay_cash.service.js"></script>
+    <script src="views/common/payment/payWay/swipingCard/pay_swipingCard.ctrl.js"></script>
+    <script src="views/common/payment/payWay/swipingCard/pay_swipingCard.service.js"></script>
+    <script src="views/common/fillInEmail/fillInEmail.controller.js"></script>
+    <script src="views/common/fillInEmail/fillInEmail.service.js"></script>
+    <script src="views/common/result/result.controller.js"></script>
+    <script src="views/common/makingCard/makingCard.controller.js"></script>
+    <script src="views/common/readIDCard/readIDCard.controller.js"></script>
+    <!-- common页面 end-->
+    <!-- 充值缴费页面 start -->
+    <script src="views/topUpPayment/recharge/recharge.controller.js"></script>
+    <script src="views/topUpPayment/recharge/recharge.service.js"></script>
+    <script src="views/topUpPayment/documents/documents.controller.js"></script>
+    <script src="views/topUpPayment/documents/documents.service.js"></script>
+    <script src="views/topUpPayment/invoiceShow/invoiceShow.controller.js"></script>
+    <script src="views/topUpPayment/invoiceShow/invoiceShow.service.js"></script>
+    <script src="views/topUpPayment/recharge/audioAnimation.directive.js"></script>
+    <!-- 充值缴费页面 end -->
+     <!-- 套餐办理 start -->
+     <script src="views/PackageHandling/pac_selectbus/pac_selectbus.ctrl.js"></script>
+     <script src="views/PackageHandling/pac_selectbus/pac_selectbus.service.js"></script>
+     <script src="views/PackageHandling/pac_list/pac_list.ctrl.js"></script>
+     <script src="views/PackageHandling/pac_list/pac_list.service.js"></script>
+     <script src="views/PackageHandling/pacAccepted/pacAccepted.controller.js"></script>
+     <script src="views/PackageHandling/pacAccepted/pacAccepted.service.js"></script>
+     <script src="views/PackageHandling/pacResult/pacResult.controller.js"></script>
+     <script src="views/PackageHandling/pacResult/pacResult.service.js"></script>
+     <script src="views/PackageHandling/pacEmail/pacEmail.controller.js"></script>
+     <script src="views/PackageHandling/pacEmail/pacEmail.service.js"></script>
+    <!-- 套餐办理 start -->
+    <!-- 开户入网 start -->
+    <script src="views/openAccount/openAccount.cs.js"></script>
+    <script src="views/openAccount/choicePackage/choicePackage.controller.js"></script>
+    <script src="views/openAccount/choiceNum/choiceNum.controller.js"></script>
+    <script src="views/openAccount/setServicePwd/setServicePwd.controller.js"></script>
+    <script src="views/openAccount/readConfirm/readConfirm.controller.js"></script>
+    <script src="views/openAccount/orderAccepted/orderAccepted.controller.js"></script>
+    <script src="views/replaceCard/takeCard/takeCard.controller.js"></script>
+    <!-- 开户入网 end -->
+    <!-- 补换卡 start -->
+    <script src="views/replaceCard/replaceCard.cs.js"></script>
+    <script src="views/replaceCard/selectCardBusi/selectCardBusi.controller.js"></script>
+    <script src="views/replaceCard/costConfirm/costConfirm.controller.js"></script>
+    <script src="views/replaceCard/changeCard/changeCard.controller.js"></script>
+    <script src="views/replaceCard/authorize/authorize.controller.js"></script>
+    <script src="views/replaceCard/verification/verification.controller.js"></script>
+    <script src="views/replaceCard/servicePass/servicePass.controller.js"></script>
+    <script src="views/replaceCard/orderAccepted/orderAccepted.controller.js"></script>
+    <script src="views/replaceCard/callRecord/callRecord.controller.js"></script>
+    <!-- 补换卡 end -->
+    <script src="views/login/loginCtrl.js"></script>
+    <script src="views/login/loginService.js"></script>
+    <!-- directive -->
+
+    <!-- Service -->
+    <!-- plugins -->
+
+    <!-- endbuild -->
+
+   
+</body>
+</html>

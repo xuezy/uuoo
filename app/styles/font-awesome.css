@@ -1,0 +1,204 @@
+/*字体样式-by欧阳惠*/
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('./fonts/fontawesome-webfont.eot');
+  src: url('./fonts/fontawesome-webfont.eot') format('embedded-opentype'),
+       url('./fonts/fontawesome-webfont.woff') format('woff'),
+       url('./fonts/fontawesome-webfont.ttf') format('truetype'),
+       url('./fonts/fontawesome-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"]:before, [class*=" icon-"]:before{text-decoration:inherit; display:inline-block; speak:none;}
+.fa {
+    display:inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.fa-expand:before {
+    content: "\f065";
+}
+.fa-times-circle:before {
+    content: "\f057";
+}
+.fa-wpforms:before {
+    content: "\f298";
+  color:#fff;
+}
+.fa-sort-desc:before{
+  content: "\f0dd";
+}
+.fa-sort-asc:before{
+  content: "\f0de";
+}
+.fa-dot-circle-o:before{
+  content:"\f192";
+}
+.fa-github:before{
+  content:"\f09b";
+}
+.fa-user:before{
+  content:"\f007";
+}
+.fa-wpforms:before{
+ content:"\f298";
+}
+.anticon-clock-circle-o:before{
+ content:"\E643";
+}
+.fa-wpforms:before{
+  content:"\f298";
+}
+i .fa .fa-wpforms:before{ content:"\f298";}
+.fa-clock-o:before {
+  content: "\f017";
+}
+.fa-eye:before{ content:"\f06e";}
+.fa-building-o:before{ content:"\f0f7"; margin-right:3px;}
+.fa-refresh:before{ content:"\f021";}
+.fa-edit:before, .fa-pencil-square-o:before{ content:"\f044";}
+.fa-toggle-on:before{ content:"\f205"; font-size:20px; color:#5cb85c;}
+.fa-toggle-off:before{ content:"\f204"; font-size:20px; color:#999999;}
+.ant-btn-ghost .fa{ font-size:14px; color:#02a0da; margin-right:8px;}
+.buildBtn .fa{ font-size:14px; color:#fff; margin-right:8px;}
+.fa-check-square-o:before{ content:"\f046"; font-size:18px; color:#00a1ea;}
+.fa-plus-square-o:before{ content:"\f196"; }
+.fa-dot-circle-o:before{ content:"\f192"; color:#7c8290; margin-right:5px;}
+.fa-remove:before, .fa-close:before, .fa-times:before{ content:"\f00d"; color:#fff; }
+.fa-folder:before{ content:"\f07b";}
+.fa-exclamation-circle:before{ content:"\f06a";}
+.fa-signal:before{ content:"\f012";}
+.fa-qrcode:before{ content:"\f029";}
+.fa-desktop:before{ content:"\f108";}
+.fa-database:before{ content:"\f1c0";}
+.fa-file-code-o:before{ content:"\f1c9";}
+.fa-dashboard:before, .fa-tachometer:before{ content:"\f0e4";}
+.fa-cc:before{ content:"\f20a";}
+.fa-life-bouy:before, .fa-life-buoy:before, .fa-life-saver:before, .fa-support:before, .fa-life-ring:before{ content:"\f1cd";}
+
+.fa-unlock-alt:before{ content:"\f13e"; font-family:18px; margin-right:10px;}
+.fa-sign-out:before{ content:"\f08b"; margin-right:10px;}
+.fa-question:before{ content:"\f128"; margin-right: 10px;}
+.fa-angle-up:after{
+  content: "\f106";
+  font-size: 18px;
+}
+.fa-angle-down:after{ content:"\f107"; font-size:18px;}
+.fa-check-circle-o:before{ content:"\f05d";}
+.fa-gear:before, .fa-cog:before{ content:"\f013";-webkit-animation:fa-spin 2s infinite linear; animation:fa-spin 2s infinite linear;}
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+}
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8);
+}
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+.fa-circle:before{ content:"\f111"; margin-right:5px;}
+.fa-trash-o:before{ content:"\f014"; margin-right:5px;}
+.fa-calendar-minus-o:before{ content:"\f272";}
+
+.navbar-fa-angle-down:after{
+  font-size: 17px;
+  float: right;
+}
+.fa-book:before{
+ content:"\f02d";
+}
+.fa-newspaper-o:before{ content:"\f1ea"; }
+.icon-download-alt:before{ content:"\f019";}
+.fa-code:before{ content:"\f121"; margin-right:5px;}
+.fa-adjust:before{ content:"\f042"; margin-right:5px;}
+.fa-cloud-download:before{ content:"\f0ed"; margin-right:8px;}
+.fa-exclamation-circle:before{ content:"\f06a"; }
+.fa-pencil:before{ content:"\f040"; margin-right:10px;}
+.fa-check-circle:before{ content: "\f058"; }
+.fa-check:before{ content: "\f00c"; color: #35bc00; font-size: 22px;}
+.fa-trash-o:before{ content: "\f014"; font-size: 14px; margin-right: 10px; }
+.fa-caret-down:before{ content:"\f0d7"; color:#b4d9fe}
+.fa-caret-ondown:before{ content:"\f0d7"; color:#2db7f5}
+.fa-caret-up:before{ content:"\f0d8"; color:#b4d9fe;}
+.fa-caret-onup:before{ content:"\f0d8"; color:#2db7f5;}
+.fa-gear:before, .fa-cog:before{
+  content: "\f013";
+}
+.fa-server:before{
+  content:"\f233";
+}
+.fa-home:before {
+    content: "\f015";
+}
+.fa-microphone:before {
+    content: "\f130";
+    font-size: 28px;
+    color: #00cdbd;
+}
+.fa-mail-reply:before, .fa-reply:before {
+    content: "\f112";
+}
+.fa-credit-card-alt:before {
+    content: "\f283";
+    color: #b8b8b8;
+    margin-right: 10px;
+}
+.fa-money:before {
+    content: "\f0d6";
+    color: #b8b8b8;
+    margin-right: 10px;
+}
+.fa-qrcode:before {
+    content: "\f029";
+    color: #b8b8b8;
+    margin-right: 10px;
+}
+.fa-search:before {
+    content: "\f002";
+    color: #797979;
+    margin-right: 10px;
+}
+.fa-drivers-license:before, .fa-id-card:before {
+    content: "\f2c2";
+    color: #fff;
+}
+.fa-address-card-o:before {
+    content: "\f2bc";
+    color: #fff;
+}
+.fa-angle-left:before {
+    content: "\f104";
+    font-size: 70px;
+}
+/*.fa-angle-left:after {
+    content: "\f104";
+    font-size: 70px;
+  color: #00cdbd;
+}*/
+.fa-angle-right:before {
+    content: "\f105";
+    font-size: 70px;
+}
+

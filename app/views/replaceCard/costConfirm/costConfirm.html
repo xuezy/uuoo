@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="mod-area-tagpanel">
+		<div class="tagpanel">
+			<p>亲爱的{{param.IDValue}}用户</p>
+			<div class="tagpaper">
+				<div ng-if="isFirst">
+				<h1>您正在办理补/换卡业务</h1>
+				<h2><strong>本次免费</strong>(第二次开始收取2元/工本费)。</h2>
+				</div>
+				<div ng-if="!isFirst">
+				<h1>您正在办理补/换卡业务</h1>
+				<h2>费用为<strong>{{param.Payment}}</strong>元，请确认。</h2>
+				</div>
+				<div class="tagpaperline"></div>
+			</div>
+		</div>
+	</div>
+	<div class="footer" style="margin-top: 62px">
+	  <span ng-click="cancel()" class="bottom btn-color-disable">退出办理</span>
+	  <span ng-click="ok()" class="bottom">确认继续</span>
+	</div>
+</div>
+
+
+

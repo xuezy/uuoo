@@ -1,0 +1,39 @@
+<div class="centerdiv">
+  <div class="mod-area-title-pay"><h1>请投入现金，剩余时间：<strong id="timer">{{timer}}s</strong></h1></div>
+  <img src="./images/bcpic_cash.png" class="p8_Img">
+  <div class="mod-area-content-cal">
+    <h1>订单金额：<strong>{{param.Payment}}元</strong>&nbsp;&nbsp;已存入金额：<strong>{{param.setMoney}}元</strong>&nbsp;&nbsp;代存金额：<strong>{{param.needMoney}}元</strong></h1>
+    <h2>提示：<strong>支持整数面额的纸币，不设找零</strong></h2>
+  </div>
+</div>
+<div class="footer" style="margin-top: 62px">
+  <span ng-Click="payCancel()" class="bottom btn-color-disable">取消支付</span>
+  <span ng-Click="otherPay()" class="bottom">其他支付方式</span>
+</div>
+
+
+<div class="maskLayer" ng-show="payState=='success'">
+  <div class="notice">
+    <img src="./images/p3_003.png">
+    <p>支付成功！请稍候...</p>
+  </div>
+</div>
+
+<div ng-show="payState=='underway'" class="maskLayer">
+  <div class="notice">
+    <div class="box">
+      <div class="loading">
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+    </div>
+    <p>正在进行支付…</p>
+  </div>
+</div>
+

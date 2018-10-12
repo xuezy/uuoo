@@ -1,0 +1,91 @@
+<div class="container-fluid">
+  <div class="row">
+		<div class="mainPadding" style="padding-top: 80px;">
+		  <div class="container-left">
+		    <div class="money">
+			     <div style="margin-bottom:20px;">
+		          <span style="display:inline-block;" ng-click="shortPwdLogin(phoLongin=false,serPwd = false,shortPwd = true)">
+		            <a href="" class="Login-modeGREEN">请输入服务密码</a>
+		          </span>
+	        	</div>
+			    <div class="Service-password">
+		            <ul>
+		                <!-- 选中的样式是passwordGREEN  出错的样式请用passwordRED -->
+		                <li class="passwordGray" ng-class="{'passwordGREEN': servicePasswordArr.length === 0}" ><input type="password" ng-model='servicePasswordArr[0]' maxlength="1"></li>
+		                <li class="passwordGray"  ng-class="{'passwordGREEN': servicePasswordArr.length === 1}"><input type="password" ng-model='servicePasswordArr[1]'  maxlength="1"></li>
+		                <li class="passwordGray" ng-class="{'passwordGREEN': servicePasswordArr.length === 2}"><input type="password" ng-model='servicePasswordArr[2]'  maxlength="1"></li>
+		                <li class="passwordGray" ng-class="{'passwordGREEN': servicePasswordArr.length === 3}"><input type="password" ng-model='servicePasswordArr[3]'  maxlength="1"></li>
+		                <li class="passwordGray" ng-class="{'passwordGREEN': servicePasswordArr.length === 4}"><input type="password" ng-model='servicePasswordArr[4]'  maxlength="1"></li>
+		                <li class="passwordGray" ng-class="{'passwordGREEN': servicePasswordArr.length === 5}"><input type="password" ng-model='servicePasswordArr[5]'  maxlength="1"></li>
+		            </ul>
+		            <P ng-show="servicePasswordBool" style=" color: #f04e80; float: left; margin-top:20px;"><img src="images/01sb.png" width="20" height="20" style="margin-right: 10px;" />密码不正确，请重新输入</P>
+	           </div>
+          </div>
+		    <!-- <div class="number">
+		      <h1>请输入服务密码</h1>
+		      <div ng-show="!isAudio" class="mobileFocus" ng-class="{mobileBlur: !focusMobile1, typeError: typeError}" >
+		        <input type="text"
+		        ng-class="{typeFinish: servicePassword.length === 6, typeError: typeError}" 
+		        ng-model="servicePassword" maxlength="6" ng-trim="false"
+		        ng-focus=" focusServicePassword = true;"/>
+		        <img ng-show="focusMobile" src="images/u384.png" width="16" height="24" style="position:relative;right: 10px" ng-click="isAudio = true;typeError = false;"/>
+		      </div>
+		      <div ng-show="isAudio" style="width: 80%;height: 70px;font-size: 24px; display: flex;align-items: center;background-color: white;">
+		        密码不正确，重新输入
+		      </div>
+		    </div> -->
+		  </div>
+		  <div class="container-right" style="width: 33%;">
+		    <ul class="banl">
+					<li ng-mouseover="key1Press = true" ng-mouseleave="key1Press = false" ng-class="{banlHover: key1Press, keyboard: !key1Press}" ng-click="typeIn(1)" style="cursor:pointer;">1</li>
+					<li ng-mouseover="key2Press = true" ng-mouseleave="key2Press = false" ng-class="{banlHover: key2Press, keyboard: !key2Press}" ng-click="typeIn(2)"  style="cursor:pointer;">2</li>
+					<li ng-mouseover="key3Press = true" ng-mouseleave="key3Press = false" ng-class="{banlHover: key3Press, keyboard: !key3Press}" ng-click="typeIn(3)"  style="cursor:pointer;">3</li>
+				</ul>
+				<ul class="banl">
+					<li ng-mouseover="key4Press = true" ng-mouseleave="key4Press = false" ng-class="{banlHover: key4Press, keyboard: !key4Press}" ng-click="typeIn(4)"  style="cursor:pointer;">4</li>
+					<li ng-mouseover="key5Press = true" ng-mouseleave="key5Press = false" ng-class="{banlHover: key5Press, keyboard: !key5Press}" ng-click="typeIn(5)"  style="cursor:pointer;">5</li>
+					<li ng-mouseover="key6Press = true" ng-mouseleave="key6Press = false" ng-class="{banlHover: key6Press, keyboard: !key6Press}" ng-click="typeIn(6)"  style="cursor:pointer;">6</li>
+				</ul>
+				<ul class="banl">
+					<li ng-mouseover="key7Press = true" ng-mouseleave="key7Press = false" ng-class="{banlHover: key7Press, keyboard: !key7Press}" ng-click="typeIn(7)"  style="cursor:pointer;">7</li>
+					<li ng-mouseover="key8Press = true" ng-mouseleave="key8Press = false" ng-class="{banlHover: key8Press, keyboard: !key8Press}" ng-click="typeIn(8)"  style="cursor:pointer;">8</li>
+					<li ng-mouseover="key9Press = true" ng-mouseleave="key9Press = false" ng-class="{banlHover: key9Press, keyboard: !key9Press}" ng-click="typeIn(9)"  style="cursor:pointer;">9</li>
+				</ul>
+				<ul class="banl">
+					<li ng-mouseover="key10Press = true" ng-mouseleave="key10Press = false" ng-class="{banlHover: key10Press, keyboard: !key10Press}" ng-click="typeIn('backspace')"  style="cursor:pointer;">←</li>
+					<li ng-mouseover="key11Press = true" ng-mouseleave="key11Press = false" ng-class="{banlHover: key11Press, keyboard: !key11Press}" ng-click="typeIn(0)"  style="cursor:pointer;">0</li>
+					<li ng-mouseover="key12Press = true" ng-mouseleave="key12Press = false" ng-class="{banlHover: key12Press, keyboardRed: !key12Press}" ng-click="typeIn('clear')">清空</li>
+				</ul>
+		  </div>
+		
+		 
+		</div>
+		<div class="PageBottom">
+	      <button type="button" class="bottom btn-color-disable" ng-click="back()">上一步</button>
+	      <button type="button" class="bottom" ng-click="goPayment()">确定</button>
+	    </div>
+	</div>
+</div>
+<div class="maskLayer" ng-show="payState=='success'">
+	<div class="notice" >
+	  <img src="./images/p3_003.png">
+	  <p>验证成功，请稍候...</p>
+	</div>
+</div>
+<div ng-show="payState=='underway'"  class="maskLayer">
+  <div class="notice"  >
+    <div class="box">    
+        <div class="loading">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>     
+        </div>
+    </div>
+    <p>正在验证，请稍候...</p>
+  </div>
+</div>

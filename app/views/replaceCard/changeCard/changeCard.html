@@ -1,0 +1,74 @@
+<div class="container-fluid" ng-init="focusMobile = true;">
+  <div class="row">
+		<div class="mainPadding">
+		  <div class="container-left">
+		    <div class="number">
+		      <h1>请输入手机号</h1>
+		      <div ng-click="focusMobile = true;focusVerCode = false;" ng-show="!isAudio" class="mobileFocus" ng-class="{mobileBlur: !focusMobile, typeError: typeError}" >
+                <div  style="width: calc(100% - 16px);height: 100%;display: flex;justify-content: center;flex-direction: column;">
+                  <input style="height: 30px;width: 100%;font-size: 24px;color:rgb(51,51,51)" type="text"
+                ng-class="{typeFinish: mobile.length === 11}" 
+                ng-model="mobile" maxlength="11" ng-trim="false" autofocus="true" />
+                  <div style="text-align:center;font-size:16px" ng-if="mobile.length === 11">{{Attr}}</div>
+                </div>
+                <img src="images/u384.png" width="16" height="24" style="position:relative;right: 10px;" ng-click="isAudio = true;"/>
+              </div>
+		      <div class="newslist" ng-show="isAudio" ng-class="{mobileFocus: focus, mobileBlur: !focus, typeError: typeError}" style="width: 80%;height: 70px;font-size: 24px; display: flex;align-items: center;background-color: white;">
+                <div ng-class="{typeFinish: phone.length === 11}" style="width: 100%;text-align: center">
+                  <div style="height: 30px">请连续报出11位手机号码</div>
+                </div>
+                <div class="searchIcon" ng-click="isAudio = false;typeError = false;" style="width: 55px; right: 18px;">
+                  <img src="images/searchIcon.png" width="20" height="30" />
+                </div>
+              </div>
+		    </div>
+		    <div class="money">
+			     <div style="margin-bottom:20px;">
+		          <span style="display:inline-block; width:21%;" ng-click="shortPwdLogin(phoLongin=false,serPwd = false,shortPwd = true)">
+		            <a href="" class="font-size:18px;">短信密码</a>
+		          </span>
+	        	</div>
+		      
+		   
+		    <div class="Service-password">
+		    	<div class="SMS-cipher" ng-class="{activeBorderGreen: focusVerCode}" ng-click="focusVerCode = true; focusMobile = false;"><input ng-class="{typeFinish: verCode.length === 6}" style="font-size: 24px;line-height: 100%;width: 85%;;color:rgb(51,51,51)" type="text" ng-model="verCode" maxlength="6" ng-trim="false">
+		        <!-- 发送验证码的时候请用灰色样式SMS-cipherGray -->
+		        <span style="top: -56px;right: -2px;position: relative;"  id="verCodebut" ng-class="{true: 'SMS-cipherGray', false: 'SMS-cipherBLUE'}[verCodebut]" ng-click="gainVerCode()">{{verCodeText}}</span></div>
+                <P ng-show="verCodebutErro" style=" color: #f04e80; float: left;">密码不正确，请检查后重试</P>
+          </div>
+		    	<!-- <input type="text"
+		        ng-model="verCode" maxlength="6" ng-trim="false"
+		        ng-focus="focusVerCode = true; focusMobile = false;"/>
+		        <button type="button" class="btn btn-primary" ng-disabled="verCodebut" ng-click="gainVerCode()">{{verCodeText}}</button> -->
+		    </div>
+		    <div class="money">
+		        <button type="button"  ng-class="{true: 'LoginButton', false: 'LoginButtonGREEN'}[confirmbut]"  id="confirmbut"  ng-click="goPayment()">{{confirmText}}</button>
+		    </div>
+		  </div>
+		  <div class="container-right" style="width: 33%;">
+		    <ul class="banl">
+              <li ng-mouseover="key1Press = true" ng-mouseleave="key1Press = false" ng-class="{banlHover: key1Press, keyboard: !key1Press}" ng-click="typeIn(1)" style="cursor:pointer;">1</li>
+              <li ng-mouseover="key2Press = true" ng-mouseleave="key2Press = false" ng-class="{banlHover: key2Press, keyboard: !key2Press}" ng-click="typeIn(2)"  style="cursor:pointer;">2</li>
+              <li ng-mouseover="key3Press = true" ng-mouseleave="key3Press = false" ng-class="{banlHover: key3Press, keyboard: !key3Press}" ng-click="typeIn(3)"  style="cursor:pointer;">3</li>
+            </ul>
+            <ul class="banl">
+              <li ng-mouseover="key4Press = true" ng-mouseleave="key4Press = false" ng-class="{banlHover: key4Press, keyboard: !key4Press}" ng-click="typeIn(4)"  style="cursor:pointer;">4</li>
+              <li ng-mouseover="key5Press = true" ng-mouseleave="key5Press = false" ng-class="{banlHover: key5Press, keyboard: !key5Press}" ng-click="typeIn(5)"  style="cursor:pointer;">5</li>
+              <li ng-mouseover="key6Press = true" ng-mouseleave="key6Press = false" ng-class="{banlHover: key6Press, keyboard: !key6Press}" ng-click="typeIn(6)"  style="cursor:pointer;">6</li>
+            </ul>
+            <ul class="banl">
+              <li ng-mouseover="key7Press = true" ng-mouseleave="key7Press = false" ng-class="{banlHover: key7Press, keyboard: !key7Press}" ng-click="typeIn(7)"  style="cursor:pointer;">7</li>
+              <li ng-mouseover="key8Press = true" ng-mouseleave="key8Press = false" ng-class="{banlHover: key8Press, keyboard: !key8Press}" ng-click="typeIn(8)"  style="cursor:pointer;">8</li>
+              <li ng-mouseover="key9Press = true" ng-mouseleave="key9Press = false" ng-class="{banlHover: key9Press, keyboard: !key9Press}" ng-click="typeIn(9)"  style="cursor:pointer;">9</li>
+            </ul>
+            <ul class="banl">
+              <li ng-mouseover="key10Press = true" ng-mouseleave="key10Press = false" ng-class="{banlHover: key10Press, keyboard: !key10Press}" ng-click="typeIn('backspace')"  style="cursor:pointer;">←</li>
+              <li ng-mouseover="key11Press = true" ng-mouseleave="key11Press = false" ng-class="{banlHover: key11Press, keyboard: !key11Press}" ng-click="typeIn(0)"  style="cursor:pointer;">0</li>
+              <li ng-mouseover="key12Press = true" ng-mouseleave="key12Press = false" ng-class="{banlHover: key12Press, keyboardRed: !key12Press}" ng-click="typeIn('clear')">清空</li>
+            </ul>
+		  </div>
+		 
+		 
+		</div>
+	</div>
+</div>

@@ -1,0 +1,38 @@
+<!-- 支付成功页面 -->
+<div class="panel">
+	<div class="area_txt">
+
+		<div class="title">
+			<img class="infologo" src="./images/p3_001.png">
+			<span>支付成功！</span>
+		</div>
+		<div class="content">
+			<p>充值号码：{{param.PhoneNum}}</p>
+			<p>充值金额：<span class="cal_num">{{param.ChargeMoney}}</span>元</p>
+			<p><br/></p>
+			<p>话费充值中，预计24小时内到账，充值高峰可能有所延迟，请以充值手机短信通知为准。</p>
+		</div>
+	</div>
+</div>
+<div class="footer">
+	<span ng-click="credentials()" class="bottom btn-color-disable">打印凭证</span>
+	<span ng-click="invoice()" class="bottom btn-color-disable">开具发票</span>
+	<span ng-click="complete()" class="bottom ">无需票据，完成</span>
+</div>
+<div ng-show="payState=='underway'"  class="maskLayer">
+  <div class="notice"  >
+    <div class="box">    
+        <div class="loading">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>     
+        </div>
+    </div>
+    <p>正在打印凭证…</p>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="graywrap">
+	<div class="container-doc">
+		<div class="con-left">
+			<h1>客户资料</h1>
+			<div class="subpanel">
+				<div class="infodiv">
+					<p class="infodiv-name">手机号码</p>
+					<p class="infodiv-val">{{basicInfo.phone}}</p>
+				</div>
+				<div class="infodiv">
+					<p class="infodiv-name">客户姓名/名称</p>
+					<p class="infodiv-val">{{basicInfo.name}}</p>
+				</div>
+				<div class="infodiv">
+					<p class="infodiv-name">证件号码</p>
+					<p class="infodiv-val">{{basicInfo.id}}</p>
+				</div>
+				<div class="infodiv">
+					<p class="infodiv-name">证件类型</p>
+					<p class="infodiv-val">身份证</p>
+				</div>
+			</div>	
+		</div>
+		<div class="con-right">
+			<h1>充值详情</h1>
+			<div class="subpanel">
+				<div class="pannel-right">
+				<p>充值日期：{{param.payDate}}</p>
+				<p>充值网点：{{param.payWebsite}}</p>
+				<p>订单号：{{param.orderId}}</p>
+				<p><br/></p>
+				<p>充值金额：{{param.price}}元</p>
+				<p>实际到账：{{param.realPrice}}元</p>
+				<p>支付金额：{{param.payNum}}元</p>
+				<p><br/></p>
+				<p>支付方式：{{param.payType}}</p>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div class="gap30"></div>
+	<div class="footer">
+		<span class="bottom" ng-click="print()">打印凭条</span>
+	</div>
+</div>
+<!--提示框-->
+<div ng-show="payState=='success'"  class="maskLayer">
+	<div class="notice" >
+	  <img src="./images/p3_003.png">
+	  <p>打印成功！({{timer}}s)</p>
+	</div>
+</div>
+<div ng-show="payState=='underway'"  class="maskLayer">
+	<div class="notice"  >
+		<div class="box">    
+		    <div class="loading">
+		        <i></i>
+		        <i></i>
+		        <i></i>
+		        <i></i>
+		        <i></i>
+		        <i></i>
+		        <i></i>
+		        <i></i>     
+		    </div>
+		</div>
+		<p>正在打印凭证…</p>
+	</div>
+</div>
